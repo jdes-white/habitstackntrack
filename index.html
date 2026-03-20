@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -54,7 +55,45 @@
         .modal-buttons { display: flex; gap: 10px; }
         .btn-primary { background: linear-gradient(135deg, #00d4ff, #00a8cc); color: white; }
         .btn-secondary { background: rgba(255, 255, 255, 0.1); color: #a0a0a0; }
-    </style>
+
+```
+    /* Golf habit link */
+    .golf-habit-link { cursor: pointer; display: flex; align-items: center; gap: 6px; }
+    .golf-habit-link .habit-name { color: #00d4ff; text-decoration: underline; text-decoration-color: rgba(0,212,255,0.4); text-underline-offset: 3px; }
+    .golf-habit-link .drill-arrow { font-size: 12px; color: #00d4ff; opacity: 0.7; }
+
+    /* Golf drill modal - full slide-up */
+    .golf-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #1a1a2e; z-index: 2000; overflow-y: auto; transform: translateY(100%); transition: transform 0.35s ease; }
+    .golf-modal.active { display: block; transform: translateY(0); }
+    .golf-modal-inner { max-width: 600px; margin: 0 auto; padding: 24px 20px 40px; }
+    .golf-modal-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 2px solid #0f3460; }
+    .golf-modal-title { font-size: 22px; font-weight: 600; color: #00d4ff; letter-spacing: 1px; text-transform: uppercase; }
+    .btn-close-golf { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: #a0a0a0; padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; flex: unset; width: auto; }
+    .btn-close-golf:hover { background: rgba(255,255,255,0.14); color: #e4e4e4; }
+
+    /* Context toggle */
+    .context-toggle { display: flex; gap: 0; margin-bottom: 28px; border-radius: 10px; overflow: hidden; border: 1px solid rgba(0,212,255,0.3); }
+    .toggle-btn { flex: 1; padding: 12px; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; cursor: pointer; border: none; background: rgba(15,52,96,0.3); color: #a0a0a0; transition: all 0.25s ease; }
+    .toggle-btn.active { background: linear-gradient(135deg, rgba(0,212,255,0.25), rgba(0,168,204,0.25)); color: #00d4ff; border-bottom: 2px solid #00d4ff; }
+
+    /* Drill panels */
+    .drill-panel { display: none; }
+    .drill-panel.active { display: block; }
+
+    .drill-section { background: rgba(15,52,96,0.4); border-radius: 12px; padding: 20px; margin-bottom: 16px; border: 1px solid rgba(0,212,255,0.15); }
+    .drill-section-title { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: #00d4ff; margin-bottom: 14px; }
+    .drill-item { padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.07); font-size: 15px; color: #e4e4e4; display: flex; align-items: flex-start; gap: 10px; }
+    .drill-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .drill-dot { width: 6px; height: 6px; border-radius: 50%; background: #00d4ff; margin-top: 7px; flex-shrink: 0; opacity: 0.7; }
+    .drill-note { font-size: 12px; color: #a0a0a0; margin-top: 3px; }
+
+    .drill-phase-tag { display: inline-block; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; padding: 3px 8px; border-radius: 4px; background: rgba(0,212,255,0.12); color: #00d4ff; border: 1px solid rgba(0,212,255,0.25); margin-bottom: 14px; }
+
+    .drill-reminder { background: rgba(255,107,53,0.08); border: 1px solid rgba(255,107,53,0.25); border-radius: 10px; padding: 14px 16px; margin-top: 8px; font-size: 13px; color: #ffb49a; line-height: 1.5; }
+    .drill-reminder strong { color: #ff6b35; }
+</style>
+```
+
 </head>
 <body>
     <div class="container">
@@ -63,345 +102,467 @@
             <div class="date" id="currentDate"></div>
         </header>
 
-        <div class="stack">
-            <div class="stack-title">MORNING STACK</div>
-            <div class="habit">
-                <div class="checkbox-wrapper"><input type="checkbox" id="morning-supps" data-habit="morning-supps"></div>
-                <div class="habit-info">
-                    <div class="habit-name">Supplements (ACV + Creatine + Vit C + Probiotic)</div>
-                    <div class="streak" id="streak-morning-supps">Current streak: 0 days</div>
-                </div>
-            </div>
-            <div class="habit">
-                <div class="checkbox-wrapper"><input type="checkbox" id="morning-gratitude" data-habit="morning-gratitude"></div>
-                <div class="habit-info">
-                    <div class="habit-name">Gratitude moment</div>
-                    <div class="streak" id="streak-morning-gratitude">Current streak: 0 days</div>
-                </div>
-            </div>
-            <div class="habit">
-                <div class="checkbox-wrapper"><input type="checkbox" id="morning-golf" data-habit="morning-golf"></div>
-                <div class="habit-info">
-                    <div class="habit-name">Golf habit</div>
-                    <div class="streak" id="streak-morning-golf">Current streak: 0 days</div>
-                </div>
+```
+    <div class="stack">
+        <div class="stack-title">MORNING STACK</div>
+        <div class="habit">
+            <div class="checkbox-wrapper"><input type="checkbox" id="morning-supps" data-habit="morning-supps"></div>
+            <div class="habit-info">
+                <div class="habit-name">Supplements (ACV + Creatine + Vit C + Probiotic)</div>
+                <div class="streak" id="streak-morning-supps">Current streak: 0 days</div>
             </div>
         </div>
-
-        <div class="stack">
-            <div class="stack-title">LUNCHTIME STACK</div>
-            <div class="habit">
-                <div class="checkbox-wrapper"><input type="checkbox" id="lunch-gratitude" data-habit="lunch-gratitude"></div>
-                <div class="habit-info">
-                    <div class="habit-name">Gratitude moment</div>
-                    <div class="streak" id="streak-lunch-gratitude">Current streak: 0 days</div>
-                </div>
-            </div>
-            <div class="habit">
-                <div class="checkbox-wrapper"><input type="checkbox" id="lunch-golf" data-habit="lunch-golf"></div>
-                <div class="habit-info">
-                    <div class="habit-name">Golf habit</div>
-                    <div class="streak" id="streak-lunch-golf">Current streak: 0 days</div>
-                </div>
+        <div class="habit">
+            <div class="checkbox-wrapper"><input type="checkbox" id="morning-gratitude" data-habit="morning-gratitude"></div>
+            <div class="habit-info">
+                <div class="habit-name">Gratitude moment</div>
+                <div class="streak" id="streak-morning-gratitude">Current streak: 0 days</div>
             </div>
         </div>
-
-        <div class="stack">
-            <div class="stack-title">AFTERNOON STACK</div>
-            <div class="habit">
-                <div class="checkbox-wrapper"><input type="checkbox" id="afternoon-shower" data-habit="afternoon-shower"></div>
-                <div class="habit-info">
-                    <div class="habit-name">Cold shower</div>
-                    <div class="streak" id="streak-afternoon-shower">Current streak: 0 days</div>
-                </div>
-            </div>
-            <div class="habit">
-                <div class="checkbox-wrapper"><input type="checkbox" id="afternoon-supps" data-habit="afternoon-supps"></div>
-                <div class="habit-info">
-                    <div class="habit-name">Supplements (Fish oil + Vit D + Zinc)</div>
-                    <div class="streak" id="streak-afternoon-supps">Current streak: 0 days</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="stack">
-            <div class="stack-title">EVENING STACK</div>
-            <div class="habit">
-                <div class="checkbox-wrapper"><input type="checkbox" id="evening-supps" data-habit="evening-supps"></div>
-                <div class="habit-info">
-                    <div class="habit-name">Supplements (Metamucil + Magnesium + ACV)</div>
-                    <div class="streak" id="streak-evening-supps">Current streak: 0 days</div>
-                </div>
-            </div>
-            <div class="habit">
-                <div class="checkbox-wrapper"><input type="checkbox" id="evening-gratitude" data-habit="evening-gratitude"></div>
-                <div class="habit-info">
-                    <div class="habit-name">Gratitude moment</div>
-                    <div class="streak" id="streak-evening-gratitude">Current streak: 0 days</div>
-                </div>
-            </div>
-            <div class="habit">
-                <div class="checkbox-wrapper"><input type="checkbox" id="evening-golf" data-habit="evening-golf"></div>
-                <div class="habit-info">
-                    <div class="habit-name">Golf habit</div>
-                    <div class="streak" id="streak-evening-golf">Current streak: 0 days</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="controls">
-            <button class="btn-reset" onclick="resetToday()">Reset Today</button>
-            <button class="btn-export" onclick="exportData()">Export</button>
-            <button class="btn-import" onclick="showImportModal()">Import</button>
-        </div>
-
-        <div class="section">
-            <div class="section-title">LAST 7 DAYS</div>
-            <div class="week-grid" id="weekGrid"></div>
-        </div>
-
-        <div class="section">
-            <div class="section-title">MONTHLY COMPLETION</div>
-            <div class="monthly-stats" id="monthlyStats"></div>
-        </div>
-    </div>
-
-    <div class="modal" id="importModal">
-        <div class="modal-content">
-            <div class="modal-title">Import Data</div>
-            <textarea id="importText" placeholder="Paste your exported data here..."></textarea>
-            <div class="modal-buttons">
-                <button class="btn-primary" onclick="importData()">Import</button>
-                <button class="btn-secondary" onclick="closeImportModal()">Cancel</button>
+        <div class="habit">
+            <div class="checkbox-wrapper"><input type="checkbox" id="morning-golf" data-habit="morning-golf"></div>
+            <div class="habit-info golf-habit-link" onclick="openGolfModal()">
+                <div class="habit-name">Golf habit <span class="drill-arrow">›</span></div>
+                <div class="streak" id="streak-morning-golf">Current streak: 0 days</div>
             </div>
         </div>
     </div>
 
-    <script>
-        const HABITS = [
-            { id: 'morning-supps', name: 'Morning Supplements' },
-            { id: 'morning-gratitude', name: 'Morning Gratitude' },
-            { id: 'morning-golf', name: 'Morning Golf' },
-            { id: 'lunch-gratitude', name: 'Lunch Gratitude' },
-            { id: 'lunch-golf', name: 'Lunch Golf' },
-            { id: 'afternoon-shower', name: 'Cold Shower' },
-            { id: 'afternoon-supps', name: 'Afternoon Supplements' },
-            { id: 'evening-supps', name: 'Evening Supplements' },
-            { id: 'evening-gratitude', name: 'Evening Gratitude' },
-            { id: 'evening-golf', name: 'Evening Golf' }
-        ];
+    <div class="stack">
+        <div class="stack-title">LUNCHTIME STACK</div>
+        <div class="habit">
+            <div class="checkbox-wrapper"><input type="checkbox" id="lunch-gratitude" data-habit="lunch-gratitude"></div>
+            <div class="habit-info">
+                <div class="habit-name">Gratitude moment</div>
+                <div class="streak" id="streak-lunch-gratitude">Current streak: 0 days</div>
+            </div>
+        </div>
+        <div class="habit">
+            <div class="checkbox-wrapper"><input type="checkbox" id="lunch-golf" data-habit="lunch-golf"></div>
+            <div class="habit-info golf-habit-link" onclick="openGolfModal()">
+                <div class="habit-name">Golf habit <span class="drill-arrow">›</span></div>
+                <div class="streak" id="streak-lunch-golf">Current streak: 0 days</div>
+            </div>
+        </div>
+    </div>
 
-        const STORAGE_KEY = 'habitTrackerData';
+    <div class="stack">
+        <div class="stack-title">AFTERNOON STACK</div>
+        <div class="habit">
+            <div class="checkbox-wrapper"><input type="checkbox" id="afternoon-shower" data-habit="afternoon-shower"></div>
+            <div class="habit-info">
+                <div class="habit-name">Cold shower</div>
+                <div class="streak" id="streak-afternoon-shower">Current streak: 0 days</div>
+            </div>
+        </div>
+        <div class="habit">
+            <div class="checkbox-wrapper"><input type="checkbox" id="afternoon-supps" data-habit="afternoon-supps"></div>
+            <div class="habit-info">
+                <div class="habit-name">Supplements (Fish oil + Vit D + Zinc)</div>
+                <div class="streak" id="streak-afternoon-supps">Current streak: 0 days</div>
+            </div>
+        </div>
+    </div>
 
-        function init() {
-            updateDate();
+    <div class="stack">
+        <div class="stack-title">EVENING STACK</div>
+        <div class="habit">
+            <div class="checkbox-wrapper"><input type="checkbox" id="evening-supps" data-habit="evening-supps"></div>
+            <div class="habit-info">
+                <div class="habit-name">Supplements (Metamucil + Magnesium + ACV)</div>
+                <div class="streak" id="streak-evening-supps">Current streak: 0 days</div>
+            </div>
+        </div>
+        <div class="habit">
+            <div class="checkbox-wrapper"><input type="checkbox" id="evening-gratitude" data-habit="evening-gratitude"></div>
+            <div class="habit-info">
+                <div class="habit-name">Gratitude moment</div>
+                <div class="streak" id="streak-evening-gratitude">Current streak: 0 days</div>
+            </div>
+        </div>
+        <div class="habit">
+            <div class="checkbox-wrapper"><input type="checkbox" id="evening-golf" data-habit="evening-golf"></div>
+            <div class="habit-info golf-habit-link" onclick="openGolfModal()">
+                <div class="habit-name">Golf habit <span class="drill-arrow">›</span></div>
+                <div class="streak" id="streak-evening-golf">Current streak: 0 days</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="controls">
+        <button class="btn-reset" onclick="resetToday()">Reset Today</button>
+        <button class="btn-export" onclick="exportData()">Export</button>
+        <button class="btn-import" onclick="showImportModal()">Import</button>
+    </div>
+
+    <div class="section">
+        <div class="section-title">LAST 7 DAYS</div>
+        <div class="week-grid" id="weekGrid"></div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">MONTHLY COMPLETION</div>
+        <div class="monthly-stats" id="monthlyStats"></div>
+    </div>
+</div>
+
+<!-- Import Modal (unchanged) -->
+<div class="modal" id="importModal">
+    <div class="modal-content">
+        <div class="modal-title">Import Data</div>
+        <textarea id="importText" placeholder="Paste your exported data here..."></textarea>
+        <div class="modal-buttons">
+            <button class="btn-primary" onclick="importData()">Import</button>
+            <button class="btn-secondary" onclick="closeImportModal()">Cancel</button>
+        </div>
+    </div>
+</div>
+
+<!-- Golf Drill Modal -->
+<div class="golf-modal" id="golfModal">
+    <div class="golf-modal-inner">
+        <div class="golf-modal-header">
+            <div class="golf-modal-title">⛳ Golf Habit</div>
+            <button class="btn-close-golf" onclick="closeGolfModal()">✕ Close</button>
+        </div>
+
+        <!-- Context toggle -->
+        <div class="context-toggle">
+            <button class="toggle-btn active" id="toggleOffice" onclick="setContext('office')">🏢 Office</button>
+            <button class="toggle-btn" id="toggleHome" onclick="setContext('home')">🏠 Home</button>
+        </div>
+
+        <!-- Office panel -->
+        <div class="drill-panel active" id="panel-office">
+            <div class="drill-phase-tag">Phase 1 — Mobility focus</div>
+            <div class="drill-section">
+                <div class="drill-section-title">Mobility (2–5 min)</div>
+                <div class="drill-item">
+                    <div class="drill-dot"></div>
+                    <div>
+                        <div>Thoracic rotation</div>
+                        <div class="drill-note">Seated or standing — 10 slow reps each side. Focus on upper back opening, not just shoulders.</div>
+                    </div>
+                </div>
+                <div class="drill-item">
+                    <div class="drill-dot"></div>
+                    <div>
+                        <div>Hip hinge + glute activation</div>
+                        <div class="drill-note">Stand, hinge forward, squeeze glutes on the way back up. 10 reps. This is your golf posture base.</div>
+                    </div>
+                </div>
+                <div class="drill-item">
+                    <div class="drill-dot"></div>
+                    <div>
+                        <div>Wrist &amp; forearm loosening</div>
+                        <div class="drill-note">Circles, wrist flexion/extension — 30 seconds each. Keeps grip tension down.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="drill-reminder">
+                <strong>Reminder:</strong> Tick the Golf habit checkbox on the main page once done. This page is just your prompt.
+            </div>
+        </div>
+
+        <!-- Home panel -->
+        <div class="drill-panel" id="panel-home">
+            <div class="drill-phase-tag">Phase 1 — Pick one, 5–10 min max</div>
+
+            <div class="drill-section">
+                <div class="drill-section-title">🎯 Putting (mat)</div>
+                <div class="drill-item">
+                    <div class="drill-dot"></div>
+                    <div>
+                        <div>Free putting — 20 balls, any distance</div>
+                        <div class="drill-note">No pressure. Just feel the stroke. This is Level 1 — showing up is the goal.</div>
+                    </div>
+                </div>
+                <div class="drill-item">
+                    <div class="drill-dot"></div>
+                    <div>
+                        <div>Gate drill (when ready)</div>
+                        <div class="drill-note">Two tees just wider than your putter face. Roll the ball through without touching. Fixes stroke path.</div>
+                    </div>
+                </div>
+                <div class="drill-item">
+                    <div class="drill-dot"></div>
+                    <div>
+                        <div>Circle drill (Level 2 unlock)</div>
+                        <div class="drill-note">5 balls around the hole at 1m. Get 5/10 consistently before moving up.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="drill-section">
+                <div class="drill-section-title">🏌️ Chipping (net)</div>
+                <div class="drill-item">
+                    <div class="drill-dot"></div>
+                    <div>
+                        <div>Bump-and-run with 7-iron</div>
+                        <div class="drill-note">10 chips. Low hands, quiet wrists. This is your highest-ROI scoring shot.</div>
+                    </div>
+                </div>
+                <div class="drill-item">
+                    <div class="drill-dot"></div>
+                    <div>
+                        <div>Wedge pitches (when ready)</div>
+                        <div class="drill-note">Focus on clean contact and wrist hinge. 10 balls is enough.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="drill-reminder">
+                <strong>Pick one section only.</strong> Putting OR chipping — not both. Keep it under 10 min. Tick the Golf habit checkbox on the main page when done.
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    const HABITS = [
+        { id: 'morning-supps', name: 'Morning Supplements' },
+        { id: 'morning-gratitude', name: 'Morning Gratitude' },
+        { id: 'morning-golf', name: 'Morning Golf' },
+        { id: 'lunch-gratitude', name: 'Lunch Gratitude' },
+        { id: 'lunch-golf', name: 'Lunch Golf' },
+        { id: 'afternoon-shower', name: 'Cold Shower' },
+        { id: 'afternoon-supps', name: 'Afternoon Supplements' },
+        { id: 'evening-supps', name: 'Evening Supplements' },
+        { id: 'evening-gratitude', name: 'Evening Gratitude' },
+        { id: 'evening-golf', name: 'Evening Golf' }
+    ];
+
+    const STORAGE_KEY = 'habitTrackerData';
+
+    function init() {
+        updateDate();
+        loadTodayData();
+        updateAllStreaks();
+        renderWeekGrid();
+        renderMonthlyStats();
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', handleCheckboxChange);
+        });
+    }
+
+    function updateDate() {
+        const today = new Date();
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('currentDate').textContent = today.toLocaleDateString('en-US', options);
+    }
+
+    function getTodayKey() {
+        const today = new Date();
+        const year = today.getFullYear();
+        const month = String(today.getMonth() + 1).padStart(2, '0');
+        const day = String(today.getDate()).padStart(2, '0');
+        return `${year}-${month}-${day}`;
+    }
+
+    function getData() {
+        const stored = localStorage.getItem(STORAGE_KEY);
+        return stored ? JSON.parse(stored) : {};
+    }
+
+    function saveData(data) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    }
+
+    function loadTodayData() {
+        const data = getData();
+        const today = getTodayKey();
+        if (!data[today]) {
+            data[today] = {};
+            saveData(data);
+        }
+        const todayData = data[today];
+        HABITS.forEach(habit => {
+            const checkbox = document.getElementById(habit.id);
+            if (checkbox) {
+                checkbox.checked = todayData[habit.id] || false;
+            }
+        });
+    }
+
+    function handleCheckboxChange(e) {
+        const habitId = e.target.dataset.habit;
+        const isChecked = e.target.checked;
+        const data = getData();
+        const today = getTodayKey();
+        if (!data[today]) data[today] = {};
+        data[today][habitId] = isChecked;
+        saveData(data);
+        updateStreak(habitId);
+    }
+
+    function updateStreak(habitId) {
+        const data = getData();
+        const today = getTodayKey();
+        const dates = Object.keys(data).sort().reverse();
+        let streak = 0;
+        for (const date of dates) {
+            if (date === today && !Object.values(data[today]).some(v => v)) continue;
+            if (data[date][habitId]) {
+                streak++;
+            } else {
+                break;
+            }
+        }
+        const streakElement = document.getElementById(`streak-${habitId}`);
+        if (streakElement) {
+            if (streak >= 7) {
+                streakElement.innerHTML = `Current streak: ${streak} days 🔥`;
+                streakElement.classList.add('fire');
+            } else {
+                streakElement.textContent = `Current streak: ${streak} days`;
+                streakElement.classList.remove('fire');
+            }
+        }
+    }
+
+    function updateAllStreaks() {
+        HABITS.forEach(habit => updateStreak(habit.id));
+    }
+
+    function resetToday() {
+        if (confirm('Reset all checkboxes for today?')) {
+            const data = getData();
+            const today = getTodayKey();
+            data[today] = {};
+            saveData(data);
             loadTodayData();
             updateAllStreaks();
             renderWeekGrid();
             renderMonthlyStats();
-            document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-                checkbox.addEventListener('change', handleCheckboxChange);
-            });
         }
+    }
 
-        function updateDate() {
-            const today = new Date();
-            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-            document.getElementById('currentDate').textContent = today.toLocaleDateString('en-US', options);
+    function renderWeekGrid() {
+        const grid = document.getElementById('weekGrid');
+        const data = getData();
+        const days = [];
+        for (let i = 6; i >= 0; i--) {
+            const date = new Date();
+            date.setDate(date.getDate() - i);
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const day = String(date.getDate()).padStart(2, '0');
+            days.push(`${year}-${month}-${day}`);
         }
-
-        function getTodayKey() {
-            const today = new Date();
-            const year = today.getFullYear();
-            const month = String(today.getMonth() + 1).padStart(2, '0');
-            const day = String(today.getDate()).padStart(2, '0');
-            return `${year}-${month}-${day}`;
-        }
-
-        function getData() {
-            const stored = localStorage.getItem(STORAGE_KEY);
-            return stored ? JSON.parse(stored) : {};
-        }
-
-        function saveData(data) {
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-        }
-
-        function loadTodayData() {
-            const data = getData();
-            const today = getTodayKey();
-
-            // FIX: Initialise today as empty if no record exists yet
-            if (!data[today]) {
-                data[today] = {};
-                saveData(data);
-            }
-
-            const todayData = data[today];
-            HABITS.forEach(habit => {
-                const checkbox = document.getElementById(habit.id);
-                if (checkbox) {
-                    checkbox.checked = todayData[habit.id] || false;
-                }
-            });
-        }
-
-        function handleCheckboxChange(e) {
-            const habitId = e.target.dataset.habit;
-            const isChecked = e.target.checked;
-            const data = getData();
-            const today = getTodayKey();
-            if (!data[today]) data[today] = {};
-            data[today][habitId] = isChecked;
-            saveData(data);
-            updateStreak(habitId);
-        }
-
-        function updateStreak(habitId) {
-            const data = getData();
-            const today = getTodayKey();
-            const dates = Object.keys(data).sort().reverse();
-            let streak = 0;
-
-            for (const date of dates) {
-                // Skip today if nothing checked yet
-                if (date === today && !Object.values(data[today]).some(v => v)) continue;
-                if (data[date][habitId]) {
-                    streak++;
-                } else {
-                    break;
-                }
-            }
-
-            const streakElement = document.getElementById(`streak-${habitId}`);
-            if (streakElement) {
-                if (streak >= 7) {
-                    streakElement.innerHTML = `Current streak: ${streak} days 🔥`;
-                    streakElement.classList.add('fire');
-                } else {
-                    streakElement.textContent = `Current streak: ${streak} days`;
-                    streakElement.classList.remove('fire');
-                }
-            }
-        }
-
-        function updateAllStreaks() {
-            HABITS.forEach(habit => updateStreak(habit.id));
-        }
-
-        function resetToday() {
-            if (confirm('Reset all checkboxes for today?')) {
-                const data = getData();
-                const today = getTodayKey();
-                data[today] = {};
-                saveData(data);
-                loadTodayData();
-                updateAllStreaks();
-                renderWeekGrid();
-                renderMonthlyStats();
-            }
-        }
-
-        function renderWeekGrid() {
-            const grid = document.getElementById('weekGrid');
-            const data = getData();
-            const days = [];
-            for (let i = 6; i >= 0; i--) {
-                const date = new Date();
-                date.setDate(date.getDate() - i);
-                const year = date.getFullYear();
-                const month = String(date.getMonth() + 1).padStart(2, '0');
-                const day = String(date.getDate()).padStart(2, '0');
-                days.push(`${year}-${month}-${day}`);
-            }
-
-            let headerRow = '<div class="week-row"><div class="week-label"></div>';
+        let headerRow = '<div class="week-row"><div class="week-label"></div>';
+        days.forEach(date => {
+            const d = new Date(date);
+            const dayName = d.toLocaleDateString('en-US', { weekday: 'short' });
+            headerRow += `<div class="day-cell day-header">${dayName}</div>`;
+        });
+        headerRow += '</div>';
+        let habitRows = '';
+        HABITS.forEach(habit => {
+            habitRows += `<div class="week-row"><div class="week-label">${habit.name}</div>`;
             days.forEach(date => {
-                const d = new Date(date);
-                const dayName = d.toLocaleDateString('en-US', { weekday: 'short' });
-                headerRow += `<div class="day-cell day-header">${dayName}</div>`;
+                const dayData = data[date] || {};
+                const isChecked = dayData[habit.id];
+                const cellClass = isChecked === true ? 'day-done' :
+                                  isChecked === false ? 'day-missed' :
+                                  'day-empty';
+                habitRows += `<div class="day-cell ${cellClass}"></div>`;
             });
-            headerRow += '</div>';
+            habitRows += '</div>';
+        });
+        grid.innerHTML = headerRow + habitRows;
+    }
 
-            let habitRows = '';
-            HABITS.forEach(habit => {
-                habitRows += `<div class="week-row"><div class="week-label">${habit.name}</div>`;
-                days.forEach(date => {
-                    const dayData = data[date] || {};
-                    const isChecked = dayData[habit.id];
-                    const cellClass = isChecked === true ? 'day-done' :
-                                      isChecked === false ? 'day-missed' :
-                                      'day-empty';
-                    habitRows += `<div class="day-cell ${cellClass}"></div>`;
-                });
-                habitRows += '</div>';
+    function renderMonthlyStats() {
+        const stats = document.getElementById('monthlyStats');
+        const data = getData();
+        const currentMonth = new Date().getMonth();
+        const currentYear = new Date().getFullYear();
+        const monthDates = Object.keys(data).filter(date => {
+            const d = new Date(date);
+            return d.getMonth() === currentMonth && d.getFullYear() === currentYear;
+        });
+        const totalDays = monthDates.length;
+        let statsHTML = '';
+        HABITS.forEach(habit => {
+            const completed = monthDates.filter(date => data[date][habit.id]).length;
+            const percentage = totalDays > 0 ? Math.round((completed / totalDays) * 100) : 0;
+            statsHTML += `
+                <div class="stat-row">
+                    <div class="stat-label">${habit.name}</div>
+                    <div class="stat-value">${percentage}% (${completed}/${totalDays})</div>
+                </div>`;
+        });
+        stats.innerHTML = statsHTML;
+    }
+
+    function exportData() {
+        const data = getData();
+        const exportText = JSON.stringify(data, null, 2);
+        navigator.clipboard.writeText(exportText).then(() => {
+            alert('Data copied to clipboard! Paste into Notes app for backup.');
+        }).catch(() => {
+            prompt('Copy this data to Notes app:', exportText);
+        });
+    }
+
+    function showImportModal() {
+        document.getElementById('importModal').classList.add('active');
+    }
+
+    function closeImportModal() {
+        document.getElementById('importModal').classList.remove('active');
+        document.getElementById('importText').value = '';
+    }
+
+    function importData() {
+        const importText = document.getElementById('importText').value.trim();
+        try {
+            const importedData = JSON.parse(importText);
+            if (typeof importedData !== 'object') throw new Error('Invalid data format');
+            const mergedData = { ...getData(), ...importedData };
+            saveData(mergedData);
+            loadTodayData();
+            updateAllStreaks();
+            renderWeekGrid();
+            renderMonthlyStats();
+            closeImportModal();
+            alert('Data imported successfully!');
+        } catch (error) {
+            alert('Error importing data. Please check the format and try again.');
+        }
+    }
+
+    // Golf modal functions
+    function openGolfModal() {
+        const modal = document.getElementById('golfModal');
+        modal.style.display = 'block';
+        // Small delay to allow display:block before transition fires
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                modal.classList.add('active');
             });
+        });
+        document.body.style.overflow = 'hidden';
+    }
 
-            grid.innerHTML = headerRow + habitRows;
-        }
+    function closeGolfModal() {
+        const modal = document.getElementById('golfModal');
+        modal.classList.remove('active');
+        setTimeout(() => { modal.style.display = 'none'; }, 350);
+        document.body.style.overflow = '';
+    }
 
-        function renderMonthlyStats() {
-            const stats = document.getElementById('monthlyStats');
-            const data = getData();
-            const currentMonth = new Date().getMonth();
-            const currentYear = new Date().getFullYear();
-            const monthDates = Object.keys(data).filter(date => {
-                const d = new Date(date);
-                return d.getMonth() === currentMonth && d.getFullYear() === currentYear;
-            });
-            const totalDays = monthDates.length;
+    function setContext(context) {
+        document.getElementById('toggleOffice').classList.toggle('active', context === 'office');
+        document.getElementById('toggleHome').classList.toggle('active', context === 'home');
+        document.getElementById('panel-office').classList.toggle('active', context === 'office');
+        document.getElementById('panel-home').classList.toggle('active', context === 'home');
+    }
 
-            let statsHTML = '';
-            HABITS.forEach(habit => {
-                const completed = monthDates.filter(date => data[date][habit.id]).length;
-                const percentage = totalDays > 0 ? Math.round((completed / totalDays) * 100) : 0;
-                statsHTML += `
-                    <div class="stat-row">
-                        <div class="stat-label">${habit.name}</div>
-                        <div class="stat-value">${percentage}% (${completed}/${totalDays})</div>
-                    </div>`;
-            });
-            stats.innerHTML = statsHTML;
-        }
+    init();
+</script>
+```
 
-        function exportData() {
-            const data = getData();
-            const exportText = JSON.stringify(data, null, 2);
-            navigator.clipboard.writeText(exportText).then(() => {
-                alert('Data copied to clipboard! Paste into Notes app for backup.');
-            }).catch(() => {
-                prompt('Copy this data to Notes app:', exportText);
-            });
-        }
-
-        function showImportModal() {
-            document.getElementById('importModal').classList.add('active');
-        }
-
-        function closeImportModal() {
-            document.getElementById('importModal').classList.remove('active');
-            document.getElementById('importText').value = '';
-        }
-
-        function importData() {
-            const importText = document.getElementById('importText').value.trim();
-            try {
-                const importedData = JSON.parse(importText);
-                if (typeof importedData !== 'object') throw new Error('Invalid data format');
-                const mergedData = { ...getData(), ...importedData };
-                saveData(mergedData);
-                loadTodayData();
-                updateAllStreaks();
-                renderWeekGrid();
-                renderMonthlyStats();
-                closeImportModal();
-                alert('Data imported successfully!');
-            } catch (error) {
-                alert('Error importing data. Please check the format and try again.');
-            }
-        }
-
-        init();
-    </script>
 </body>
 </html>
