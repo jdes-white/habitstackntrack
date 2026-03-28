@@ -56,43 +56,43 @@
         .btn-primary { background: linear-gradient(135deg, #00d4ff, #00a8cc); color: white; }
         .btn-secondary { background: rgba(255, 255, 255, 0.1); color: #a0a0a0; }
 
+```
+    /* Tappable habit link */
+    .habit-link { cursor: pointer; display: flex; align-items: center; gap: 6px; }
+    .habit-link .habit-name { color: #00d4ff; text-decoration: underline; text-decoration-color: rgba(0,212,255,0.4); text-underline-offset: 3px; }
+    .habit-link .drill-arrow { font-size: 12px; color: #00d4ff; opacity: 0.7; }
 
-    /* Golf habit link */
-    .golf-habit-link { cursor: pointer; display: flex; align-items: center; gap: 6px; }
-    .golf-habit-link .habit-name { color: #00d4ff; text-decoration: underline; text-decoration-color: rgba(0,212,255,0.4); text-underline-offset: 3px; }
-    .golf-habit-link .drill-arrow { font-size: 12px; color: #00d4ff; opacity: 0.7; }
-
-    /* Golf drill modal - full slide-up */
-    .golf-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #1a1a2e; z-index: 2000; overflow-y: auto; transform: translateY(100%); transition: transform 0.35s ease; }
-    .golf-modal.active { display: block; transform: translateY(0); }
-    .golf-modal-inner { max-width: 600px; margin: 0 auto; padding: 24px 20px 40px; }
-    .golf-modal-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 2px solid #0f3460; }
-    .golf-modal-title { font-size: 22px; font-weight: 600; color: #00d4ff; letter-spacing: 1px; text-transform: uppercase; }
-    .btn-close-golf { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: #a0a0a0; padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; flex: unset; width: auto; }
-    .btn-close-golf:hover { background: rgba(255,255,255,0.14); color: #e4e4e4; }
+    /* Full screen slide-up modal (shared by golf + gratitude) */
+    .full-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #1a1a2e; z-index: 2000; overflow-y: auto; transform: translateY(100%); transition: transform 0.35s ease; }
+    .full-modal.active { display: block; transform: translateY(0); }
+    .full-modal-inner { max-width: 600px; margin: 0 auto; padding: 24px 20px 40px; }
+    .full-modal-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 2px solid #0f3460; }
+    .full-modal-title { font-size: 22px; font-weight: 600; color: #00d4ff; letter-spacing: 1px; text-transform: uppercase; }
+    .btn-close-modal { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: #a0a0a0; padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; flex: unset; width: auto; }
+    .btn-close-modal:hover { background: rgba(255,255,255,0.14); color: #e4e4e4; }
 
     /* Context toggle */
     .context-toggle { display: flex; gap: 0; margin-bottom: 28px; border-radius: 10px; overflow: hidden; border: 1px solid rgba(0,212,255,0.3); }
     .toggle-btn { flex: 1; padding: 12px; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; cursor: pointer; border: none; background: rgba(15,52,96,0.3); color: #a0a0a0; transition: all 0.25s ease; }
     .toggle-btn.active { background: linear-gradient(135deg, rgba(0,212,255,0.25), rgba(0,168,204,0.25)); color: #00d4ff; border-bottom: 2px solid #00d4ff; }
 
-    /* Drill panels */
+    /* Drill / gratitude panels */
     .drill-panel { display: none; }
     .drill-panel.active { display: block; }
-
     .drill-section { background: rgba(15,52,96,0.4); border-radius: 12px; padding: 20px; margin-bottom: 16px; border: 1px solid rgba(0,212,255,0.15); }
     .drill-section-title { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: #00d4ff; margin-bottom: 14px; }
     .drill-item { padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.07); font-size: 15px; color: #e4e4e4; display: flex; align-items: flex-start; gap: 10px; }
     .drill-item:last-child { border-bottom: none; padding-bottom: 0; }
     .drill-dot { width: 6px; height: 6px; border-radius: 50%; background: #00d4ff; margin-top: 7px; flex-shrink: 0; opacity: 0.7; }
     .drill-note { font-size: 12px; color: #a0a0a0; margin-top: 3px; }
-
     .drill-phase-tag { display: inline-block; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; padding: 3px 8px; border-radius: 4px; background: rgba(0,212,255,0.12); color: #00d4ff; border: 1px solid rgba(0,212,255,0.25); margin-bottom: 14px; }
-
     .drill-reminder { background: rgba(255,107,53,0.08); border: 1px solid rgba(255,107,53,0.25); border-radius: 10px; padding: 14px 16px; margin-top: 8px; font-size: 13px; color: #ffb49a; line-height: 1.5; }
     .drill-reminder strong { color: #ff6b35; }
-</style>
 
+    /* Gratitude anchor block */
+    .gratitude-anchor { background: rgba(0,212,255,0.06); border-left: 3px solid #00d4ff; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 14px 0; font-size: 14px; color: #00d4ff; font-style: italic; line-height: 1.5; }
+</style>
+```
 
 </head>
 <body>
@@ -102,7 +102,7 @@
             <div class="date" id="currentDate"></div>
         </header>
 
-
+```
     <div class="stack">
         <div class="stack-title">MORNING STACK</div>
         <div class="habit">
@@ -114,14 +114,14 @@
         </div>
         <div class="habit">
             <div class="checkbox-wrapper"><input type="checkbox" id="morning-gratitude" data-habit="morning-gratitude"></div>
-            <div class="habit-info">
-                <div class="habit-name">Gratitude moment</div>
+            <div class="habit-info habit-link" onclick="openGratitudeModal()">
+                <div class="habit-name">Gratitude <span class="drill-arrow">›</span></div>
                 <div class="streak" id="streak-morning-gratitude">Current streak: 0 days</div>
             </div>
         </div>
         <div class="habit">
             <div class="checkbox-wrapper"><input type="checkbox" id="morning-golf" data-habit="morning-golf"></div>
-            <div class="habit-info golf-habit-link" onclick="openGolfModal()">
+            <div class="habit-info habit-link" onclick="openGolfModal()">
                 <div class="habit-name">Golf habit <span class="drill-arrow">›</span></div>
                 <div class="streak" id="streak-morning-golf">Current streak: 0 days</div>
             </div>
@@ -132,14 +132,14 @@
         <div class="stack-title">LUNCHTIME STACK</div>
         <div class="habit">
             <div class="checkbox-wrapper"><input type="checkbox" id="lunch-gratitude" data-habit="lunch-gratitude"></div>
-            <div class="habit-info">
-                <div class="habit-name">Gratitude moment</div>
+            <div class="habit-info habit-link" onclick="openGratitudeModal()">
+                <div class="habit-name">Gratitude <span class="drill-arrow">›</span></div>
                 <div class="streak" id="streak-lunch-gratitude">Current streak: 0 days</div>
             </div>
         </div>
         <div class="habit">
             <div class="checkbox-wrapper"><input type="checkbox" id="lunch-golf" data-habit="lunch-golf"></div>
-            <div class="habit-info golf-habit-link" onclick="openGolfModal()">
+            <div class="habit-info habit-link" onclick="openGolfModal()">
                 <div class="habit-name">Golf habit <span class="drill-arrow">›</span></div>
                 <div class="streak" id="streak-lunch-golf">Current streak: 0 days</div>
             </div>
@@ -169,7 +169,7 @@
         <div class="habit">
             <div class="checkbox-wrapper"><input type="checkbox" id="evening-hud" data-habit="evening-hud"></div>
             <div class="habit-info">
-                <div class="habit-name">Hud bedtime routine</div>
+                <div class="habit-name">Hud Bedtime Routine</div>
                 <div class="streak" id="streak-evening-hud">Current streak: 0 days</div>
             </div>
         </div>
@@ -182,14 +182,14 @@
         </div>
         <div class="habit">
             <div class="checkbox-wrapper"><input type="checkbox" id="evening-gratitude" data-habit="evening-gratitude"></div>
-            <div class="habit-info">
-                <div class="habit-name">Gratitude moment</div>
+            <div class="habit-info habit-link" onclick="openGratitudeModal()">
+                <div class="habit-name">Gratitude <span class="drill-arrow">›</span></div>
                 <div class="streak" id="streak-evening-gratitude">Current streak: 0 days</div>
             </div>
         </div>
         <div class="habit">
             <div class="checkbox-wrapper"><input type="checkbox" id="evening-golf" data-habit="evening-golf"></div>
-            <div class="habit-info golf-habit-link" onclick="openGolfModal()">
+            <div class="habit-info habit-link" onclick="openGolfModal()">
                 <div class="habit-name">Golf habit <span class="drill-arrow">›</span></div>
                 <div class="streak" id="streak-evening-golf">Current streak: 0 days</div>
             </div>
@@ -213,7 +213,7 @@
     </div>
 </div>
 
-<!-- Import Modal (unchanged) -->
+<!-- Import Modal -->
 <div class="modal" id="importModal">
     <div class="modal-content">
         <div class="modal-title">Import Data</div>
@@ -225,24 +225,20 @@
     </div>
 </div>
 
-<!-- Golf Drill Modal -->
-<div class="golf-modal" id="golfModal">
-    <div class="golf-modal-inner">
-        <div class="golf-modal-header">
-            <div class="golf-modal-title">⛳ Golf Habit</div>
-            <button class="btn-close-golf" onclick="closeGolfModal()">✕ Close</button>
+<!-- Golf Modal -->
+<div class="full-modal" id="golfModal">
+    <div class="full-modal-inner">
+        <div class="full-modal-header">
+            <div class="full-modal-title">⛳ Golf Habit</div>
+            <button class="btn-close-modal" onclick="closeGolfModal()">✕ Close</button>
         </div>
-
-        <!-- Context toggle -->
         <div class="context-toggle">
-            <button class="toggle-btn active" id="toggleOffice" onclick="setContext('office')">🧘 Mobility</button>
-            <button class="toggle-btn" id="toggleHome" onclick="setContext('home')">🏌️ Practice​​​​​​​​​​​​​​​​</button>
+            <button class="toggle-btn active" id="golfToggleMobility" onclick="setGolfContext('mobility')">🧘 Mobility</button>
+            <button class="toggle-btn" id="golfTogglePractice" onclick="setGolfContext('practice')">🏌️ Practice</button>
         </div>
 
-        <!-- Office panel -->
-        <div class="drill-panel active" id="panel-office">
-            <div class="drill-phase-tag">Phase 1 — Mobility + Strength prompts</div>
-
+        <div class="drill-panel active" id="panel-mobility">
+            <div class="drill-phase-tag">Phase 1 — Mobility + Strength Prompts</div>
             <div class="drill-section">
                 <div class="drill-section-title">🔄 Flexibility (3–5 min)</div>
                 <div class="drill-item">
@@ -274,52 +270,13 @@
                     </div>
                 </div>
             </div>
-
-            <div class="drill-section">
-                <div class="drill-section-title">💪 Strength prompt (gym reminder)</div>
-                <div class="drill-item">
-                    <div class="drill-dot"></div>
-                    <div>
-                        <div>Single-leg RDL</div>
-                        <div class="drill-note">Trail side glute loading — the physical fix for your backswing coil. Priority lift.</div>
-                    </div>
-                </div>
-                <div class="drill-item">
-                    <div class="drill-dot"></div>
-                    <div>
-                        <div>Split squat / reverse lunge</div>
-                        <div class="drill-note">Builds separation and stability under load. Mirrors the hip-shoulder split in your downswing.</div>
-                    </div>
-                </div>
-                <div class="drill-item">
-                    <div class="drill-dot"></div>
-                    <div>
-                        <div>Glute activation (banded or bodyweight)</div>
-                        <div class="drill-note">Pre-swing primer. Clamshells or banded walks — 15 reps. Can be done anywhere.</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="drill-section">
-                <div class="drill-section-title">🧠 Swing thought</div>
-                <div class="drill-item">
-                    <div class="drill-dot"></div>
-                    <div>
-                        <div style="font-size:17px; color:#00d4ff; font-weight:600;">"Lower body starts, upper body follows."</div>
-                        <div class="drill-note">Your #1 fix. Hips initiate, shoulders lag. Feel your back still facing the target as hips begin to open.</div>
-                    </div>
-                </div>
-            </div>
-
             <div class="drill-reminder">
-                <strong>Reminder:</strong> Tick the Golf habit checkbox on the main page once done. This page is just your prompt.
+                <strong>Reminder:</strong> Tick the Golf habit checkbox on the main page once done.
             </div>
         </div>
 
-        <!-- Home panel -->
-        <div class="drill-panel" id="panel-home">
+        <div class="drill-panel" id="panel-practice">
             <div class="drill-phase-tag">Phase 1 — Pick one, 5–10 min max</div>
-
             <div class="drill-section">
                 <div class="drill-section-title">🎯 Putting (mat)</div>
                 <div class="drill-item">
@@ -344,7 +301,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="drill-section">
                 <div class="drill-section-title">🏌️ Chipping (net)</div>
                 <div class="drill-item">
@@ -362,23 +318,138 @@
                     </div>
                 </div>
             </div>
-
-            <div class="drill-section">
-                <div class="drill-section-title">🧠 Swing thought</div>
-                <div class="drill-item">
-                    <div class="drill-dot"></div>
-                    <div>
-                        <div style="font-size:17px; color:#00d4ff; font-weight:600;">"Lower body starts, upper body follows."</div>
-                        <div class="drill-note">Even on chip shots — feel the hips lead, hands follow. Builds the pattern automatically.</div>
-                    </div>
-                </div>
-            </div>
-
             <div class="drill-reminder">
                 <strong>Pick one section only.</strong> Putting OR chipping — not both. Keep it under 10 min. Tick the Golf habit checkbox on the main page when done.
             </div>
         </div>
+    </div>
+</div>
 
+<!-- Gratitude Modal -->
+<div class="full-modal" id="gratitudeModal">
+    <div class="full-modal-inner">
+        <div class="full-modal-header">
+            <div class="full-modal-title">🙏 Gratitude</div>
+            <button class="btn-close-modal" onclick="closeGratitudeModal()">✕ Close</button>
+        </div>
+        <div class="context-toggle">
+            <button class="toggle-btn active" id="gratToggleShort" onclick="setGratitudeContext('short')">🟢 Short</button>
+            <button class="toggle-btn" id="gratToggleMedium" onclick="setGratitudeContext('medium')">🟡 Medium</button>
+            <button class="toggle-btn" id="gratToggleLong" onclick="setGratitudeContext('long')">🔵 Long</button>
+        </div>
+
+        <!-- Short panel -->
+        <div class="drill-panel active" id="panel-short">
+            <div class="drill-phase-tag">30–60 seconds</div>
+            <div class="drill-section">
+                <div class="drill-section-title">Prompt</div>
+                <div class="drill-item">
+                    <div class="drill-dot"></div>
+                    <div>What's 1 thing I'm grateful for right now?</div>
+                </div>
+                <div class="drill-item">
+                    <div class="drill-dot"></div>
+                    <div>Why does it matter?</div>
+                </div>
+            </div>
+            <div class="gratitude-anchor">There is always something working in my favour.</div>
+            <div class="drill-section">
+                <div class="drill-section-title">Action</div>
+                <div class="drill-item">
+                    <div class="drill-dot"></div>
+                    <div>Name 1–2 things — include "because"</div>
+                </div>
+            </div>
+            <div class="drill-reminder">
+                <strong>Reminder:</strong> Tick the Gratitude checkbox on the main page once done.
+            </div>
+        </div>
+
+        <!-- Medium panel -->
+        <div class="drill-panel" id="panel-medium">
+            <div class="drill-phase-tag">2–3 minutes</div>
+            <div class="drill-section">
+                <div class="drill-section-title">Prompt</div>
+                <div class="drill-item">
+                    <div class="drill-dot"></div>
+                    <div>What went well today?</div>
+                </div>
+                <div class="drill-item">
+                    <div class="drill-dot"></div>
+                    <div>Who am I grateful for?</div>
+                </div>
+                <div class="drill-item">
+                    <div class="drill-dot"></div>
+                    <div>What did I do well?</div>
+                </div>
+            </div>
+            <div class="gratitude-anchor">Good things are happening, and I'm part of them.</div>
+            <div class="drill-section">
+                <div class="drill-section-title">Action — 3 items</div>
+                <div class="drill-item">
+                    <div class="drill-dot"></div>
+                    <div>1 life</div>
+                </div>
+                <div class="drill-item">
+                    <div class="drill-dot"></div>
+                    <div>1 person</div>
+                </div>
+                <div class="drill-item">
+                    <div class="drill-dot"></div>
+                    <div>1 self</div>
+                </div>
+            </div>
+            <div class="drill-reminder">
+                <strong>Reminder:</strong> Tick the Gratitude checkbox on the main page once done.
+            </div>
+        </div>
+
+        <!-- Long panel -->
+        <div class="drill-panel" id="panel-long">
+            <div class="drill-phase-tag">5+ minutes</div>
+            <div class="drill-section">
+                <div class="drill-section-title">Prompt</div>
+                <div class="drill-item">
+                    <div class="drill-dot"></div>
+                    <div>What do I have today that I once wanted?</div>
+                </div>
+                <div class="drill-item">
+                    <div class="drill-dot"></div>
+                    <div>What challenge is helping me grow?</div>
+                </div>
+                <div class="drill-item">
+                    <div class="drill-dot"></div>
+                    <div>What would be worse if this was missing?</div>
+                </div>
+            </div>
+            <div class="gratitude-anchor">Even the hard parts are shaping something valuable.</div>
+            <div class="drill-section">
+                <div class="drill-section-title">Action — 4–5 items</div>
+                <div class="drill-item">
+                    <div class="drill-dot"></div>
+                    <div>1 life</div>
+                </div>
+                <div class="drill-item">
+                    <div class="drill-dot"></div>
+                    <div>1 person</div>
+                </div>
+                <div class="drill-item">
+                    <div class="drill-dot"></div>
+                    <div>1 self</div>
+                </div>
+                <div class="drill-item">
+                    <div class="drill-dot"></div>
+                    <div>1 challenge</div>
+                </div>
+                <div class="drill-item">
+                    <div class="drill-dot"></div>
+                    <div>1 contrast</div>
+                </div>
+            </div>
+            <div class="drill-reminder">
+                <strong>Reminder:</strong> Tick the Gratitude checkbox on the main page once done.
+            </div>
+        </div>
     </div>
 </div>
 
@@ -443,9 +514,7 @@
         const todayData = data[today];
         HABITS.forEach(habit => {
             const checkbox = document.getElementById(habit.id);
-            if (checkbox) {
-                checkbox.checked = todayData[habit.id] || false;
-            }
+            if (checkbox) checkbox.checked = todayData[habit.id] || false;
         });
     }
 
@@ -551,11 +620,7 @@
         HABITS.forEach(habit => {
             const completed = monthDates.filter(date => data[date][habit.id]).length;
             const percentage = totalDays > 0 ? Math.round((completed / totalDays) * 100) : 0;
-            statsHTML += `
-                <div class="stat-row">
-                    <div class="stat-label">${habit.name}</div>
-                    <div class="stat-value">${percentage}% (${completed}/${totalDays})</div>
-                </div>`;
+            statsHTML += `<div class="stat-row"><div class="stat-label">${habit.name}</div><div class="stat-value">${percentage}% (${completed}/${totalDays})</div></div>`;
         });
         stats.innerHTML = statsHTML;
     }
@@ -570,10 +635,7 @@
         });
     }
 
-    function showImportModal() {
-        document.getElementById('importModal').classList.add('active');
-    }
-
+    function showImportModal() { document.getElementById('importModal').classList.add('active'); }
     function closeImportModal() {
         document.getElementById('importModal').classList.remove('active');
         document.getElementById('importText').value = '';
@@ -583,7 +645,7 @@
         const importText = document.getElementById('importText').value.trim();
         try {
             const importedData = JSON.parse(importText);
-            if (typeof importedData !== 'object') throw new Error('Invalid data format');
+            if (typeof importedData !== 'object') throw new Error('Invalid');
             const mergedData = { ...getData(), ...importedData };
             saveData(mergedData);
             loadTodayData();
@@ -597,36 +659,42 @@
         }
     }
 
-    // Golf modal functions
-    function openGolfModal() {
-        const modal = document.getElementById('golfModal');
+    function openModal(id) {
+        const modal = document.getElementById(id);
         modal.style.display = 'block';
-        // Small delay to allow display:block before transition fires
-        requestAnimationFrame(() => {
-            requestAnimationFrame(() => {
-                modal.classList.add('active');
-            });
-        });
+        requestAnimationFrame(() => requestAnimationFrame(() => modal.classList.add('active')));
         document.body.style.overflow = 'hidden';
     }
 
-    function closeGolfModal() {
-        const modal = document.getElementById('golfModal');
+    function closeModal(id) {
+        const modal = document.getElementById(id);
         modal.classList.remove('active');
         setTimeout(() => { modal.style.display = 'none'; }, 350);
         document.body.style.overflow = '';
     }
 
-    function setContext(context) {
-        document.getElementById('toggleOffice').classList.toggle('active', context === 'office');
-        document.getElementById('toggleHome').classList.toggle('active', context === 'home');
-        document.getElementById('panel-office').classList.toggle('active', context === 'office');
-        document.getElementById('panel-home').classList.toggle('active', context === 'home');
+    function openGolfModal() { openModal('golfModal'); }
+    function closeGolfModal() { closeModal('golfModal'); }
+    function openGratitudeModal() { openModal('gratitudeModal'); }
+    function closeGratitudeModal() { closeModal('gratitudeModal'); }
+
+    function setGolfContext(context) {
+        document.getElementById('golfToggleMobility').classList.toggle('active', context === 'mobility');
+        document.getElementById('golfTogglePractice').classList.toggle('active', context === 'practice');
+        document.getElementById('panel-mobility').classList.toggle('active', context === 'mobility');
+        document.getElementById('panel-practice').classList.toggle('active', context === 'practice');
+    }
+
+    function setGratitudeContext(context) {
+        ['short','medium','long'].forEach(c => {
+            document.getElementById('gratToggle' + c.charAt(0).toUpperCase() + c.slice(1)).classList.toggle('active', c === context);
+            document.getElementById('panel-' + c).classList.toggle('active', c === context);
+        });
     }
 
     init();
 </script>
-
+```
 
 </body>
 </html>
