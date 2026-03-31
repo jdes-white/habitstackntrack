@@ -56,7 +56,6 @@
         .btn-primary { background: linear-gradient(135deg, #00d4ff, #00a8cc); color: white; }
         .btn-secondary { background: rgba(255, 255, 255, 0.1); color: #a0a0a0; }
 
-```
     .habit-link { cursor: pointer; display: flex; align-items: center; gap: 6px; }
     .habit-link .habit-name { color: #00d4ff; text-decoration: underline; text-decoration-color: rgba(0,212,255,0.4); text-underline-offset: 3px; }
     .habit-link .drill-arrow { font-size: 12px; color: #00d4ff; opacity: 0.7; }
@@ -86,7 +85,6 @@
     .drill-reminder strong { color: #ff6b35; }
     .gratitude-anchor { background: rgba(0,212,255,0.06); border-left: 3px solid #00d4ff; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 14px 0; font-size: 14px; color: #00d4ff; font-style: italic; line-height: 1.5; }
 </style>
-```
 
 </head>
 <body>
@@ -96,7 +94,6 @@
             <div class="date" id="currentDate"></div>
         </header>
 
-```
     <div class="stack">
         <div class="stack-title">MORNING STACK</div>
         <div class="habit">
@@ -124,6 +121,13 @@
 
     <div class="stack">
         <div class="stack-title">LUNCHTIME STACK</div>
+        <div class="habit">
+            <div class="checkbox-wrapper"><input type="checkbox" id="lunch-finances" data-habit="lunch-finances"></div>
+            <div class="habit-info">
+                <div class="habit-name">Market Review</div>
+                <div class="streak" id="streak-lunch-finances">Current streak: 0 days</div>
+            </div>
+        </div>
         <div class="habit">
             <div class="checkbox-wrapper"><input type="checkbox" id="lunch-widgy" data-habit="lunch-widgy"></div>
             <div class="habit-info">
@@ -394,6 +398,7 @@
         { id: 'morning-supps', name: 'Morning Supplements' },
         { id: 'morning-gratitude', name: 'Morning Gratitude' },
         { id: 'morning-golf', name: 'Morning Mobility' },
+        { id: 'lunch-finances', name: 'Market Review' },
         { id: 'lunch-widgy', name: 'Widgy Goals & Plan' },
         { id: 'lunch-gratitude', name: 'Lunch Gratitude' },
         { id: 'lunch-golf', name: 'Lunch Golf' },
@@ -625,7 +630,6 @@
 
     init();
 </script>
-```
 
 </body>
 </html>
