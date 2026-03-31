@@ -56,13 +56,11 @@
         .btn-primary { background: linear-gradient(135deg, #00d4ff, #00a8cc); color: white; }
         .btn-secondary { background: rgba(255, 255, 255, 0.1); color: #a0a0a0; }
 
-
-    /* Tappable habit link */
+```
     .habit-link { cursor: pointer; display: flex; align-items: center; gap: 6px; }
     .habit-link .habit-name { color: #00d4ff; text-decoration: underline; text-decoration-color: rgba(0,212,255,0.4); text-underline-offset: 3px; }
     .habit-link .drill-arrow { font-size: 12px; color: #00d4ff; opacity: 0.7; }
 
-    /* Full screen slide-up modal (shared by golf + gratitude) */
     .full-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #1a1a2e; z-index: 2000; overflow-y: auto; transform: translateY(100%); transition: transform 0.35s ease; }
     .full-modal.active { display: block; transform: translateY(0); }
     .full-modal-inner { max-width: 600px; margin: 0 auto; padding: 24px 20px 40px; }
@@ -71,12 +69,10 @@
     .btn-close-modal { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: #a0a0a0; padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; flex: unset; width: auto; }
     .btn-close-modal:hover { background: rgba(255,255,255,0.14); color: #e4e4e4; }
 
-    /* Context toggle */
     .context-toggle { display: flex; gap: 0; margin-bottom: 28px; border-radius: 10px; overflow: hidden; border: 1px solid rgba(0,212,255,0.3); }
     .toggle-btn { flex: 1; padding: 12px; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; cursor: pointer; border: none; background: rgba(15,52,96,0.3); color: #a0a0a0; transition: all 0.25s ease; }
     .toggle-btn.active { background: linear-gradient(135deg, rgba(0,212,255,0.25), rgba(0,168,204,0.25)); color: #00d4ff; border-bottom: 2px solid #00d4ff; }
 
-    /* Drill / gratitude panels */
     .drill-panel { display: none; }
     .drill-panel.active { display: block; }
     .drill-section { background: rgba(15,52,96,0.4); border-radius: 12px; padding: 20px; margin-bottom: 16px; border: 1px solid rgba(0,212,255,0.15); }
@@ -88,11 +84,9 @@
     .drill-phase-tag { display: inline-block; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; padding: 3px 8px; border-radius: 4px; background: rgba(0,212,255,0.12); color: #00d4ff; border: 1px solid rgba(0,212,255,0.25); margin-bottom: 14px; }
     .drill-reminder { background: rgba(255,107,53,0.08); border: 1px solid rgba(255,107,53,0.25); border-radius: 10px; padding: 14px 16px; margin-top: 8px; font-size: 13px; color: #ffb49a; line-height: 1.5; }
     .drill-reminder strong { color: #ff6b35; }
-
-    /* Gratitude anchor block */
     .gratitude-anchor { background: rgba(0,212,255,0.06); border-left: 3px solid #00d4ff; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 14px 0; font-size: 14px; color: #00d4ff; font-style: italic; line-height: 1.5; }
 </style>
-
+```
 
 </head>
 <body>
@@ -102,7 +96,7 @@
             <div class="date" id="currentDate"></div>
         </header>
 
-
+```
     <div class="stack">
         <div class="stack-title">MORNING STACK</div>
         <div class="habit">
@@ -121,8 +115,8 @@
         </div>
         <div class="habit">
             <div class="checkbox-wrapper"><input type="checkbox" id="morning-golf" data-habit="morning-golf"></div>
-            <div class="habit-info habit-link" onclick="openGolfModal()">
-                <div class="habit-name">Golf habit <span class="drill-arrow">›</span></div>
+            <div class="habit-info">
+                <div class="habit-name">Morning Mobility</div>
                 <div class="streak" id="streak-morning-golf">Current streak: 0 days</div>
             </div>
         </div>
@@ -130,6 +124,13 @@
 
     <div class="stack">
         <div class="stack-title">LUNCHTIME STACK</div>
+        <div class="habit">
+            <div class="checkbox-wrapper"><input type="checkbox" id="lunch-widgy" data-habit="lunch-widgy"></div>
+            <div class="habit-info">
+                <div class="habit-name">Widgy Goals & Plan</div>
+                <div class="streak" id="streak-lunch-widgy">Current streak: 0 days</div>
+            </div>
+        </div>
         <div class="habit">
             <div class="checkbox-wrapper"><input type="checkbox" id="lunch-gratitude" data-habit="lunch-gratitude"></div>
             <div class="habit-info habit-link" onclick="openGratitudeModal()">
@@ -236,7 +237,6 @@
             <button class="toggle-btn active" id="golfToggleMobility" onclick="setGolfContext('mobility')">🧘 Mobility</button>
             <button class="toggle-btn" id="golfTogglePractice" onclick="setGolfContext('practice')">🏌️ Practice</button>
         </div>
-
         <div class="drill-panel active" id="panel-mobility">
             <div class="drill-phase-tag">Phase 1 — Mobility + Strength Prompts</div>
             <div class="drill-section">
@@ -274,7 +274,6 @@
                 <strong>Reminder:</strong> Tick the Golf habit checkbox on the main page once done.
             </div>
         </div>
-
         <div class="drill-panel" id="panel-practice">
             <div class="drill-phase-tag">Phase 1 — Pick one, 5–10 min max</div>
             <div class="drill-section">
@@ -337,118 +336,55 @@
             <button class="toggle-btn" id="gratToggleMedium" onclick="setGratitudeContext('medium')">🟡 Medium</button>
             <button class="toggle-btn" id="gratToggleLong" onclick="setGratitudeContext('long')">🔵 Long</button>
         </div>
-
-        <!-- Short panel -->
         <div class="drill-panel active" id="panel-short">
             <div class="drill-phase-tag">30–60 seconds</div>
             <div class="drill-section">
                 <div class="drill-section-title">Prompt</div>
-                <div class="drill-item">
-                    <div class="drill-dot"></div>
-                    <div>What's one thing I'm grateful for right now?</div>
-                </div>
-                <div class="drill-item">
-                    <div class="drill-dot"></div>
-                    <div>Why does it matter?</div>
-                </div>
+                <div class="drill-item"><div class="drill-dot"></div><div>What's one thing I'm grateful for right now?</div></div>
+                <div class="drill-item"><div class="drill-dot"></div><div>Why does it matter?</div></div>
             </div>
             <div class="gratitude-anchor">There is always something working in my favour.</div>
             <div class="drill-section">
                 <div class="drill-section-title">Action</div>
-                <div class="drill-item">
-                    <div class="drill-dot"></div>
-                    <div>Name 1–2 things — include "because"</div>
-                </div>
+                <div class="drill-item"><div class="drill-dot"></div><div>Name 1–2 things — include "because"</div></div>
             </div>
-            <div class="drill-reminder">
-                <strong>Reminder:</strong> Tick the Gratitude checkbox on the main page once done.
-            </div>
+            <div class="drill-reminder"><strong>Reminder:</strong> Tick the Gratitude checkbox on the main page once done.</div>
         </div>
-
-        <!-- Medium panel -->
         <div class="drill-panel" id="panel-medium">
             <div class="drill-phase-tag">2–3 minutes</div>
             <div class="drill-section">
                 <div class="drill-section-title">Prompt</div>
-                <div class="drill-item">
-                    <div class="drill-dot"></div>
-                    <div>What went well today?</div>
-                </div>
-                <div class="drill-item">
-                    <div class="drill-dot"></div>
-                    <div>Who am I grateful for?</div>
-                </div>
-                <div class="drill-item">
-                    <div class="drill-dot"></div>
-                    <div>What did I do well?</div>
-                </div>
+                <div class="drill-item"><div class="drill-dot"></div><div>What went well today?</div></div>
+                <div class="drill-item"><div class="drill-dot"></div><div>Who am I grateful for?</div></div>
+                <div class="drill-item"><div class="drill-dot"></div><div>What did I do well?</div></div>
             </div>
             <div class="gratitude-anchor">Good things are happening, and I'm part of them.</div>
             <div class="drill-section">
                 <div class="drill-section-title">Action — 3 items</div>
-                <div class="drill-item">
-                    <div class="drill-dot"></div>
-                    <div>1 life</div>
-                </div>
-                <div class="drill-item">
-                    <div class="drill-dot"></div>
-                    <div>1 person</div>
-                </div>
-                <div class="drill-item">
-                    <div class="drill-dot"></div>
-                    <div>1 self</div>
-                </div>
+                <div class="drill-item"><div class="drill-dot"></div><div>1 life</div></div>
+                <div class="drill-item"><div class="drill-dot"></div><div>1 person</div></div>
+                <div class="drill-item"><div class="drill-dot"></div><div>1 self</div></div>
             </div>
-            <div class="drill-reminder">
-                <strong>Reminder:</strong> Tick the Gratitude checkbox on the main page once done.
-            </div>
+            <div class="drill-reminder"><strong>Reminder:</strong> Tick the Gratitude checkbox on the main page once done.</div>
         </div>
-
-        <!-- Long panel -->
         <div class="drill-panel" id="panel-long">
             <div class="drill-phase-tag">5+ minutes</div>
             <div class="drill-section">
                 <div class="drill-section-title">Prompt</div>
-                <div class="drill-item">
-                    <div class="drill-dot"></div>
-                    <div>What do I have today that I once wanted?</div>
-                </div>
-                <div class="drill-item">
-                    <div class="drill-dot"></div>
-                    <div>What challenge is helping me grow?</div>
-                </div>
-                <div class="drill-item">
-                    <div class="drill-dot"></div>
-                    <div>What would be worse if this was missing?</div>
-                </div>
+                <div class="drill-item"><div class="drill-dot"></div><div>What do I have today that I once wanted?</div></div>
+                <div class="drill-item"><div class="drill-dot"></div><div>What challenge is helping me grow?</div></div>
+                <div class="drill-item"><div class="drill-dot"></div><div>What would be worse if this was missing?</div></div>
             </div>
             <div class="gratitude-anchor">Even the hard parts are shaping something valuable.</div>
             <div class="drill-section">
                 <div class="drill-section-title">Action — 4–5 items</div>
-                <div class="drill-item">
-                    <div class="drill-dot"></div>
-                    <div>1 life</div>
-                </div>
-                <div class="drill-item">
-                    <div class="drill-dot"></div>
-                    <div>1 person</div>
-                </div>
-                <div class="drill-item">
-                    <div class="drill-dot"></div>
-                    <div>1 self</div>
-                </div>
-                <div class="drill-item">
-                    <div class="drill-dot"></div>
-                    <div>1 challenge</div>
-                </div>
-                <div class="drill-item">
-                    <div class="drill-dot"></div>
-                    <div>1 contrast</div>
-                </div>
+                <div class="drill-item"><div class="drill-dot"></div><div>1 life</div></div>
+                <div class="drill-item"><div class="drill-dot"></div><div>1 person</div></div>
+                <div class="drill-item"><div class="drill-dot"></div><div>1 self</div></div>
+                <div class="drill-item"><div class="drill-dot"></div><div>1 challenge</div></div>
+                <div class="drill-item"><div class="drill-dot"></div><div>1 contrast</div></div>
             </div>
-            <div class="drill-reminder">
-                <strong>Reminder:</strong> Tick the Gratitude checkbox on the main page once done.
-            </div>
+            <div class="drill-reminder"><strong>Reminder:</strong> Tick the Gratitude checkbox on the main page once done.</div>
         </div>
     </div>
 </div>
@@ -457,7 +393,8 @@
     const HABITS = [
         { id: 'morning-supps', name: 'Morning Supplements' },
         { id: 'morning-gratitude', name: 'Morning Gratitude' },
-        { id: 'morning-golf', name: 'Morning Golf' },
+        { id: 'morning-golf', name: 'Morning Mobility' },
+        { id: 'lunch-widgy', name: 'Widgy Goals & Plan' },
         { id: 'lunch-gratitude', name: 'Lunch Gratitude' },
         { id: 'lunch-golf', name: 'Lunch Golf' },
         { id: 'afternoon-shower', name: 'Cold Shower' },
@@ -554,9 +491,7 @@
         }
     }
 
-    function updateAllStreaks() {
-        HABITS.forEach(habit => updateStreak(habit.id));
-    }
+    function updateAllStreaks() { HABITS.forEach(habit => updateStreak(habit.id)); }
 
     function resetToday() {
         if (confirm('Reset all checkboxes for today?')) {
@@ -586,19 +521,15 @@
         let headerRow = '<div class="week-row"><div class="week-label"></div>';
         days.forEach(date => {
             const d = new Date(date);
-            const dayName = d.toLocaleDateString('en-US', { weekday: 'short' });
-            headerRow += `<div class="day-cell day-header">${dayName}</div>`;
+            headerRow += `<div class="day-cell day-header">${d.toLocaleDateString('en-US', { weekday: 'short' })}</div>`;
         });
         headerRow += '</div>';
         let habitRows = '';
         HABITS.forEach(habit => {
             habitRows += `<div class="week-row"><div class="week-label">${habit.name}</div>`;
             days.forEach(date => {
-                const dayData = data[date] || {};
-                const isChecked = dayData[habit.id];
-                const cellClass = isChecked === true ? 'day-done' :
-                                  isChecked === false ? 'day-missed' :
-                                  'day-empty';
+                const isChecked = (data[date] || {})[habit.id];
+                const cellClass = isChecked === true ? 'day-done' : isChecked === false ? 'day-missed' : 'day-empty';
                 habitRows += `<div class="day-cell ${cellClass}"></div>`;
             });
             habitRows += '</div>';
@@ -694,7 +625,7 @@
 
     init();
 </script>
-
+```
 
 </body>
 </html>
