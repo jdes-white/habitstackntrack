@@ -107,16 +107,9 @@
             </div>
         </div>
         <div class="habit">
-            <div class="checkbox-wrapper"><input type="checkbox" id="morning-gratitude" data-habit="morning-gratitude"></div>
-            <div class="habit-info habit-link" onclick="openGratitudeModal()">
-                <div class="habit-name">Gratitude <span class="drill-arrow">›</span></div>
-                <div class="streak" id="streak-morning-gratitude">Current streak: 0 days</div>
-            </div>
-        </div>
-        <div class="habit">
             <div class="checkbox-wrapper"><input type="checkbox" id="morning-golf" data-habit="morning-golf"></div>
-            <div class="habit-info">
-                <div class="habit-name">Morning Mobility</div>
+            <div class="habit-info habit-link" onclick="openPrimerModal()">
+                <div class="habit-name">Morning Primer <span class="drill-arrow">›</span></div>
                 <div class="streak" id="streak-morning-golf">Current streak: 0 days</div>
             </div>
         </div>
@@ -236,6 +229,137 @@
         <div class="modal-buttons">
             <button class="btn-primary" onclick="importData()">Import</button>
             <button class="btn-secondary" onclick="closeImportModal()">Cancel</button>
+        </div>
+    </div>
+</div>
+
+<!-- Morning Primer Modal -->
+<div class="full-modal" id="primerModal">
+    <div class="full-modal-inner">
+        <div class="full-modal-header">
+            <div class="full-modal-title">☀️ Morning Primer</div>
+            <button class="btn-close-modal" onclick="closePrimerModal()">✕ Close</button>
+        </div>
+
+        <!-- Toggle -->
+        <div class="context-toggle">
+            <button class="toggle-btn active" id="primerToggleLong" onclick="setPrimerContext('long')">🔵 Long</button>
+            <button class="toggle-btn" id="primerToggleShort" onclick="setPrimerContext('short')">🟢 Short</button>
+        </div>
+
+        <!-- Short Panel -->
+        <div class="drill-panel" id="panel-primer-short">
+            <div class="drill-phase-tag">Phase 1 — Home</div>
+            <div class="drill-section">
+                <div class="drill-section-title">🏠 Home</div>
+                <div class="drill-item">
+                    <div class="drill-dot"></div>
+                    <div>
+                        <div>Cold water on face</div>
+                        <div class="drill-note">Wake the system. Quick reset.</div>
+                    </div>
+                </div>
+                <div class="drill-item">
+                    <div class="drill-dot"></div>
+                    <div>
+                        <div>Step outside (1–2 mins)</div>
+                        <div class="drill-note">Get natural light. Look into the distance. Let your eyes and nervous system settle.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="drill-phase-tag">Phase 2 — Commute</div>
+            <div class="drill-section">
+                <div class="drill-section-title">🚶 Walk</div>
+                <div class="drill-item">
+                    <div class="drill-dot"></div>
+                    <div>
+                        <div>Set your standard for the day</div>
+                        <div class="drill-note">Who are you today? Pick one way you show up — calm, proactive, patient.</div>
+                    </div>
+                </div>
+                <div class="drill-item">
+                    <div class="drill-dot"></div>
+                    <div>
+                        <div>Run 1–2 scenarios</div>
+                        <div class="drill-note">Where will this be tested? See yourself handling it well.</div>
+                    </div>
+                </div>
+                <div class="drill-item">
+                    <div class="drill-dot"></div>
+                    <div>
+                        <div>Envision tonight</div>
+                        <div class="drill-note">Lying in bed — exhausted, but fulfilled from the day.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Long Panel -->
+        <div class="drill-panel active" id="panel-primer-long">
+            <div class="drill-phase-tag">Phase 1 — Home</div>
+            <div class="drill-section">
+                <div class="drill-section-title">🏠 Home</div>
+                <div class="drill-item">
+                    <div class="drill-dot"></div>
+                    <div>
+                        <div>Cold water on face</div>
+                        <div class="drill-note">Wake the system. Quick reset.</div>
+                    </div>
+                </div>
+                <div class="drill-item">
+                    <div class="drill-dot"></div>
+                    <div>
+                        <div>Step outside (2–5 mins)</div>
+                        <div class="drill-note">Get natural light. Look into the distance. Let your eyes and nervous system settle.</div>
+                    </div>
+                </div>
+                <div class="drill-item">
+                    <div class="drill-dot"></div>
+                    <div>
+                        <div>2-min flow</div>
+                        <div class="drill-note">Bounce / twist / up-down. Get the body moving before the mind takes over.</div>
+                    </div>
+                </div>
+                <div class="drill-item">
+                    <div class="drill-dot"></div>
+                    <div>
+                        <div>Gratitude — short</div>
+                        <div class="drill-note">1–2 things. Say why they matter.</div>
+                    </div>
+                </div>
+                <div class="drill-item">
+                    <div class="drill-dot"></div>
+                    <div>
+                        <div>Mental challenge (5–10 mins)</div>
+                        <div class="drill-note">Sudoku / logic puzzle / brain teaser / language practice</div>
+                    </div>
+                </div>
+            </div>
+            <div class="drill-phase-tag">Phase 2 — Commute</div>
+            <div class="drill-section">
+                <div class="drill-section-title">🚶 Walk</div>
+                <div class="drill-item">
+                    <div class="drill-dot"></div>
+                    <div>
+                        <div>Set your standard for the day</div>
+                        <div class="drill-note">Who are you today? Pick one way you show up — calm, proactive, patient.</div>
+                    </div>
+                </div>
+                <div class="drill-item">
+                    <div class="drill-dot"></div>
+                    <div>
+                        <div>Run 1–2 scenarios</div>
+                        <div class="drill-note">Where will this be tested? See yourself handling it well.</div>
+                    </div>
+                </div>
+                <div class="drill-item">
+                    <div class="drill-dot"></div>
+                    <div>
+                        <div>Envision tonight</div>
+                        <div class="drill-note">Lying in bed — exhausted, but fulfilled from the day.</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -440,8 +564,7 @@
 <script>
     const HABITS = [
         { id: 'morning-supps', name: 'Morning Supplements' },
-        { id: 'morning-gratitude', name: 'Morning Gratitude' },
-        { id: 'morning-golf', name: 'Morning Mobility' },
+        { id: 'morning-golf', name: 'Morning Primer' },
         { id: 'lunch-finances', name: 'Market Review' },
         { id: 'lunch-widgy', name: 'Widgy Goals & Plan' },
         { id: 'lunch-gratitude', name: 'Lunch Gratitude' },
@@ -660,6 +783,8 @@
     function closeGratitudeModal() { closeModal('gratitudeModal'); }
     function openCleanupModal() { openModal('cleanupModal'); }
     function closeCleanupModal() { closeModal('cleanupModal'); }
+    function openPrimerModal() { openModal('primerModal'); }
+    function closePrimerModal() { closeModal('primerModal'); }
 
     function setGolfContext(context) {
         document.getElementById('golfToggleMobility').classList.toggle('active', context === 'mobility');
@@ -673,6 +798,13 @@
             document.getElementById('gratToggle' + c.charAt(0).toUpperCase() + c.slice(1)).classList.toggle('active', c === context);
             document.getElementById('panel-' + c).classList.toggle('active', c === context);
         });
+    }
+
+    function setPrimerContext(context) {
+        document.getElementById('primerToggleShort').classList.toggle('active', context === 'short');
+        document.getElementById('primerToggleLong').classList.toggle('active', context === 'long');
+        document.getElementById('panel-primer-short').classList.toggle('active', context === 'short');
+        document.getElementById('panel-primer-long').classList.toggle('active', context === 'long');
     }
 
     init();
