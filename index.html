@@ -27,11 +27,8 @@
         .controls { display: flex; gap: 10px; margin-bottom: 30px; }
         button { flex: 1; padding: 12px 20px; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 0.5px; }
         .btn-reset { background: rgba(255, 107, 53, 0.2); color: #ff6b35; border: 1px solid #ff6b35; }
-        .btn-reset:hover { background: rgba(255, 107, 53, 0.3); }
         .btn-export { background: rgba(0, 212, 255, 0.2); color: #00d4ff; border: 1px solid #00d4ff; }
-        .btn-export:hover { background: rgba(0, 212, 255, 0.3); }
         .btn-import { background: rgba(0, 168, 204, 0.2); color: #00a8cc; border: 1px solid #00a8cc; }
-        .btn-import:hover { background: rgba(0, 168, 204, 0.3); }
         .section { margin-bottom: 30px; }
         .section-title { font-size: 18px; font-weight: 600; margin-bottom: 15px; color: #00d4ff; text-align: center; padding: 15px 0; border-top: 2px solid #0f3460; border-bottom: 2px solid #0f3460; }
         .week-grid { display: grid; gap: 10px; overflow-x: auto; padding-bottom: 10px; }
@@ -55,39 +52,34 @@
         .modal-buttons { display: flex; gap: 10px; }
         .btn-primary { background: linear-gradient(135deg, #00d4ff, #00a8cc); color: white; }
         .btn-secondary { background: rgba(255, 255, 255, 0.1); color: #a0a0a0; }
-
-
-    .habit-link { cursor: pointer; display: flex; flex-direction: column; }
-    .habit-link .habit-name { color: #00d4ff; text-decoration: underline; text-decoration-color: rgba(0,212,255,0.4); text-underline-offset: 3px; }
-    .habit-link .drill-arrow { font-size: 12px; color: #00d4ff; opacity: 0.7; }
-
-    .full-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #1a1a2e; z-index: 2000; overflow-y: auto; transform: translateY(100%); transition: transform 0.35s ease; }
-    .full-modal.active { display: block; transform: translateY(0); }
-    .full-modal-inner { max-width: 600px; margin: 0 auto; padding: 24px 20px 40px; }
-    .full-modal-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 2px solid #0f3460; }
-    .full-modal-title { font-size: 22px; font-weight: 600; color: #00d4ff; letter-spacing: 1px; text-transform: uppercase; }
-    .btn-close-modal { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: #a0a0a0; padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; flex: unset; width: auto; }
-    .btn-close-modal:hover { background: rgba(255,255,255,0.14); color: #e4e4e4; }
-
-    .context-toggle { display: flex; gap: 0; margin-bottom: 28px; border-radius: 10px; overflow: hidden; border: 1px solid rgba(0,212,255,0.3); }
-    .toggle-btn { flex: 1; padding: 12px; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; cursor: pointer; border: none; background: rgba(15,52,96,0.3); color: #a0a0a0; transition: all 0.25s ease; }
-    .toggle-btn.active { background: linear-gradient(135deg, rgba(0,212,255,0.25), rgba(0,168,204,0.25)); color: #00d4ff; border-bottom: 2px solid #00d4ff; }
-
-    .drill-panel { display: none; }
-    .drill-panel.active { display: block; }
-    .drill-section { background: rgba(15,52,96,0.4); border-radius: 12px; padding: 20px; margin-bottom: 16px; border: 1px solid rgba(0,212,255,0.15); }
-    .drill-section-title { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: #00d4ff; margin-bottom: 14px; }
-    .drill-item { padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.07); font-size: 15px; color: #e4e4e4; display: flex; align-items: flex-start; gap: 10px; }
-    .drill-item:last-child { border-bottom: none; padding-bottom: 0; }
-    .drill-dot { width: 6px; height: 6px; border-radius: 50%; background: #00d4ff; margin-top: 7px; flex-shrink: 0; opacity: 0.7; }
-    .drill-note { font-size: 12px; color: #a0a0a0; margin-top: 3px; }
-    .drill-phase-tag { display: inline-block; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; padding: 3px 8px; border-radius: 4px; background: rgba(0,212,255,0.12); color: #00d4ff; border: 1px solid rgba(0,212,255,0.25); margin-bottom: 14px; }
-    .drill-reminder { background: rgba(255,107,53,0.08); border: 1px solid rgba(255,107,53,0.25); border-radius: 10px; padding: 14px 16px; margin-top: 8px; font-size: 13px; color: #ffb49a; line-height: 1.5; }
-    .drill-reminder strong { color: #ff6b35; }
-    .gratitude-anchor { background: rgba(0,212,255,0.06); border-left: 3px solid #00d4ff; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 14px 0; font-size: 14px; color: #00d4ff; font-style: italic; line-height: 1.5; }
-</style>
-
-
+        .habit-link { cursor: pointer; }
+        .habit-link .habit-name { color: #00d4ff; text-decoration: underline; text-decoration-color: rgba(0,212,255,0.4); text-underline-offset: 3px; }
+        .drill-arrow { font-size: 12px; color: #00d4ff; opacity: 0.7; }
+        .full-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #1a1a2e; z-index: 2000; overflow-y: auto; transform: translateY(100%); transition: transform 0.35s ease; }
+        .full-modal.active { display: block; transform: translateY(0); }
+        .full-modal-inner { max-width: 600px; margin: 0 auto; padding: 24px 20px 40px; }
+        .full-modal-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 2px solid #0f3460; }
+        .full-modal-title { font-size: 22px; font-weight: 600; color: #00d4ff; letter-spacing: 1px; text-transform: uppercase; }
+        .btn-close-modal { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: #a0a0a0; padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; flex: unset; width: auto; }
+        .context-toggle { display: flex; gap: 0; margin-bottom: 28px; border-radius: 10px; overflow: hidden; border: 1px solid rgba(0,212,255,0.3); }
+        .toggle-btn { flex: 1; padding: 12px; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; cursor: pointer; border: none; background: rgba(15,52,96,0.3); color: #a0a0a0; transition: all 0.25s ease; }
+        .toggle-btn.active { background: linear-gradient(135deg, rgba(0,212,255,0.25), rgba(0,168,204,0.25)); color: #00d4ff; border-bottom: 2px solid #00d4ff; }
+        .drill-panel { display: none; }
+        .drill-panel.active { display: block; }
+        .drill-section { background: rgba(15,52,96,0.4); border-radius: 12px; padding: 20px; margin-bottom: 16px; border: 1px solid rgba(0,212,255,0.15); }
+        .drill-section-title { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: #00d4ff; margin-bottom: 14px; }
+        .drill-item { padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.07); font-size: 15px; color: #e4e4e4; display: flex; align-items: flex-start; gap: 10px; }
+        .drill-item:last-child { border-bottom: none; padding-bottom: 0; }
+        .drill-dot { width: 6px; height: 6px; border-radius: 50%; background: #00d4ff; margin-top: 7px; flex-shrink: 0; opacity: 0.7; }
+        .drill-note { font-size: 12px; color: #a0a0a0; margin-top: 3px; }
+        .drill-phase-tag { display: inline-block; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; padding: 3px 8px; border-radius: 4px; background: rgba(0,212,255,0.12); color: #00d4ff; border: 1px solid rgba(0,212,255,0.25); margin-bottom: 14px; }
+        .drill-reminder { background: rgba(255,107,53,0.08); border: 1px solid rgba(255,107,53,0.25); border-radius: 10px; padding: 14px 16px; margin-top: 8px; font-size: 13px; color: #ffb49a; line-height: 1.5; }
+        .drill-reminder strong { color: #ff6b35; }
+        .gratitude-anchor { background: rgba(0,212,255,0.06); border-left: 3px solid #00d4ff; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 14px 0; font-size: 14px; color: #00d4ff; font-style: italic; line-height: 1.5; }
+        .btn-external-link { display: block; width: 100%; padding: 14px; background: rgba(0,212,255,0.1); border: 1px solid rgba(0,212,255,0.3); border-radius: 10px; color: #00d4ff; font-size: 15px; font-weight: 600; text-align: center; cursor: pointer; text-decoration: none; margin-top: 8px; }
+        .weekend-stack { border-color: rgba(255,200,0,0.3) !important; }
+        .weekend-stack .stack-title { color: #ffc800; }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -96,7 +88,8 @@
             <div class="date" id="currentDate"></div>
         </header>
 
-
+```
+    <!-- MORNING STACK — always visible -->
     <div class="stack">
         <div class="stack-title">MORNING STACK</div>
         <div class="habit">
@@ -106,107 +99,171 @@
                 <div class="streak" id="streak-morning-supps">Current streak: 0 days</div>
             </div>
         </div>
-        <div class="habit">
+        <!-- Weekday primer -->
+        <div class="habit" id="row-morning-primer">
             <div class="checkbox-wrapper"><input type="checkbox" id="morning-golf" data-habit="morning-golf"></div>
-            <div class="habit-info habit-link" onclick="openPrimerModal()">
-                <div class="habit-name">Morning Primer <span class="drill-arrow">›</span></div>
+            <div class="habit-info habit-link" id="primer-link">
+                <div class="habit-name" id="primer-label">Morning Primer <span class="drill-arrow">›</span></div>
                 <div class="streak" id="streak-morning-golf">Current streak: 0 days</div>
             </div>
         </div>
     </div>
 
-    <div class="stack">
-        <div class="stack-title">LUNCHTIME STACK</div>
-        <div class="habit">
-            <div class="checkbox-wrapper"><input type="checkbox" id="lunch-finances" data-habit="lunch-finances"></div>
-            <div class="habit-info">
-                <div class="habit-name">Market Review</div>
-                <div class="streak" id="streak-lunch-finances">Current streak: 0 days</div>
+    <!-- WEEKDAY STACKS -->
+    <div id="weekday-stacks">
+        <div class="stack">
+            <div class="stack-title">LUNCHTIME STACK</div>
+            <div class="habit">
+                <div class="checkbox-wrapper"><input type="checkbox" id="lunch-finances" data-habit="lunch-finances"></div>
+                <div class="habit-info">
+                    <div class="habit-name">Market Review</div>
+                    <div class="streak" id="streak-lunch-finances">Current streak: 0 days</div>
+                </div>
+            </div>
+            <div class="habit">
+                <div class="checkbox-wrapper"><input type="checkbox" id="lunch-widgy" data-habit="lunch-widgy"></div>
+                <div class="habit-info">
+                    <div class="habit-name">Widgy Goals & Plan</div>
+                    <div class="streak" id="streak-lunch-widgy">Current streak: 0 days</div>
+                </div>
+            </div>
+            <div class="habit">
+                <div class="checkbox-wrapper"><input type="checkbox" id="lunch-gratitude" data-habit="lunch-gratitude"></div>
+                <div class="habit-info habit-link" onclick="openGratitudeModal()">
+                    <div class="habit-name">Gratitude <span class="drill-arrow">›</span></div>
+                    <div class="streak" id="streak-lunch-gratitude">Current streak: 0 days</div>
+                </div>
+            </div>
+            <div class="habit">
+                <div class="checkbox-wrapper"><input type="checkbox" id="lunch-golf" data-habit="lunch-golf"></div>
+                <div class="habit-info habit-link" onclick="openGolfModal()">
+                    <div class="habit-name">Lunch Mobility <span class="drill-arrow">›</span></div>
+                    <div class="streak" id="streak-lunch-golf">Current streak: 0 days</div>
+                </div>
             </div>
         </div>
-        <div class="habit">
-            <div class="checkbox-wrapper"><input type="checkbox" id="lunch-widgy" data-habit="lunch-widgy"></div>
-            <div class="habit-info">
-                <div class="habit-name">Widgy Goals & Plan</div>
-                <div class="streak" id="streak-lunch-widgy">Current streak: 0 days</div>
+
+        <div class="stack">
+            <div class="stack-title">AFTERNOON STACK</div>
+            <div class="habit">
+                <div class="checkbox-wrapper"><input type="checkbox" id="afternoon-huddy" data-habit="afternoon-huddy"></div>
+                <div class="habit-info habit-link" onclick="openHuddyModal()">
+                    <div class="habit-name">Huddy <span class="drill-arrow">›</span></div>
+                    <div class="streak" id="streak-afternoon-huddy">Current streak: 0 days</div>
+                </div>
+            </div>
+            <div class="habit">
+                <div class="checkbox-wrapper"><input type="checkbox" id="afternoon-supps" data-habit="afternoon-supps"></div>
+                <div class="habit-info">
+                    <div class="habit-name">Supplements (Fish oil + Vit D + Zinc + Magnesium)</div>
+                    <div class="streak" id="streak-afternoon-supps">Current streak: 0 days</div>
+                </div>
+            </div>
+            <div class="habit">
+                <div class="checkbox-wrapper"><input type="checkbox" id="evening-cleanup" data-habit="evening-cleanup"></div>
+                <div class="habit-info habit-link" onclick="openCleanupModal()">
+                    <div class="habit-name">Proactive Cleanup <span class="drill-arrow">›</span></div>
+                    <div class="streak" id="streak-evening-cleanup">Current streak: 0 days</div>
+                </div>
+            </div>
+            <div class="habit">
+                <div class="checkbox-wrapper"><input type="checkbox" id="afternoon-shower" data-habit="afternoon-shower"></div>
+                <div class="habit-info">
+                    <div class="habit-name">Cold shower</div>
+                    <div class="streak" id="streak-afternoon-shower">Current streak: 0 days</div>
+                </div>
             </div>
         </div>
-        <div class="habit">
-            <div class="checkbox-wrapper"><input type="checkbox" id="lunch-gratitude" data-habit="lunch-gratitude"></div>
-            <div class="habit-info habit-link" onclick="openGratitudeModal()">
-                <div class="habit-name">Gratitude <span class="drill-arrow">›</span></div>
-                <div class="streak" id="streak-lunch-gratitude">Current streak: 0 days</div>
+
+        <div class="stack">
+            <div class="stack-title">EVENING STACK</div>
+            <div class="habit">
+                <div class="checkbox-wrapper"><input type="checkbox" id="evening-hud" data-habit="evening-hud"></div>
+                <div class="habit-info">
+                    <div class="habit-name">Hud Bedtime Routine</div>
+                    <div class="streak" id="streak-evening-hud">Current streak: 0 days</div>
+                </div>
             </div>
-        </div>
-        <div class="habit">
-            <div class="checkbox-wrapper"><input type="checkbox" id="lunch-golf" data-habit="lunch-golf"></div>
-            <div class="habit-info habit-link" onclick="openGolfModal()">
-                <div class="habit-name">Lunch Mobility <span class="drill-arrow">›</span></div>
-                <div class="streak" id="streak-lunch-golf">Current streak: 0 days</div>
+            <div class="habit">
+                <div class="checkbox-wrapper"><input type="checkbox" id="evening-supps" data-habit="evening-supps"></div>
+                <div class="habit-info">
+                    <div class="habit-name">Supplements (Metamucil + ACV)</div>
+                    <div class="streak" id="streak-evening-supps">Current streak: 0 days</div>
+                </div>
+            </div>
+            <div class="habit">
+                <div class="checkbox-wrapper"><input type="checkbox" id="evening-gratitude" data-habit="evening-gratitude"></div>
+                <div class="habit-info habit-link" onclick="openGratitudeModal()">
+                    <div class="habit-name">Gratitude <span class="drill-arrow">›</span></div>
+                    <div class="streak" id="streak-evening-gratitude">Current streak: 0 days</div>
+                </div>
+            </div>
+            <div class="habit">
+                <div class="checkbox-wrapper"><input type="checkbox" id="evening-golf" data-habit="evening-golf"></div>
+                <div class="habit-info habit-link" onclick="openGolfModal()">
+                    <div class="habit-name">Golf habit <span class="drill-arrow">›</span></div>
+                    <div class="streak" id="streak-evening-golf">Current streak: 0 days</div>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="stack">
-        <div class="stack-title">AFTERNOON STACK</div>
-        <div class="habit">
-            <div class="checkbox-wrapper"><input type="checkbox" id="afternoon-huddy" data-habit="afternoon-huddy"></div>
-            <div class="habit-info habit-link" onclick="openHuddyModal()">
-                <div class="habit-name">Huddy <span class="drill-arrow">›</span></div>
-                <div class="streak" id="streak-afternoon-huddy">Current streak: 0 days</div>
+    <!-- WEEKEND STACKS -->
+    <div id="weekend-stacks" style="display:none;">
+        <div class="stack weekend-stack">
+            <div class="stack-title">WEEKEND STACK</div>
+            <div class="habit">
+                <div class="checkbox-wrapper"><input type="checkbox" id="weekend-huddy" data-habit="weekend-huddy"></div>
+                <div class="habit-info habit-link" onclick="openHuddyModal()">
+                    <div class="habit-name">Huddy <span class="drill-arrow">›</span></div>
+                    <div class="streak" id="streak-weekend-huddy">—</div>
+                </div>
+            </div>
+            <div class="habit">
+                <div class="checkbox-wrapper"><input type="checkbox" id="weekend-tasks" data-habit="weekend-tasks"></div>
+                <div class="habit-info habit-link" onclick="openWeekendTasksModal()">
+                    <div class="habit-name">Weekend Tasks <span class="drill-arrow">›</span></div>
+                    <div class="streak" id="streak-weekend-tasks">—</div>
+                </div>
             </div>
         </div>
-        <div class="habit">
-            <div class="checkbox-wrapper"><input type="checkbox" id="afternoon-supps" data-habit="afternoon-supps"></div>
-            <div class="habit-info">
-                <div class="habit-name">Supplements (Fish oil + Vit D + Zinc + Magnesium)</div>
-                <div class="streak" id="streak-afternoon-supps">Current streak: 0 days</div>
-            </div>
-        </div>
-        <div class="habit">
-            <div class="checkbox-wrapper"><input type="checkbox" id="evening-cleanup" data-habit="evening-cleanup"></div>
-            <div class="habit-info habit-link" onclick="openCleanupModal()">
-                <div class="habit-name">Proactive Cleanup <span class="drill-arrow">›</span></div>
-                <div class="streak" id="streak-evening-cleanup">Current streak: 0 days</div>
-            </div>
-        </div>
-        <div class="habit">
-            <div class="checkbox-wrapper"><input type="checkbox" id="afternoon-shower" data-habit="afternoon-shower"></div>
-            <div class="habit-info">
-                <div class="habit-name">Cold shower</div>
-                <div class="streak" id="streak-afternoon-shower">Current streak: 0 days</div>
-            </div>
-        </div>
-    </div>
 
-    <div class="stack">
-        <div class="stack-title">EVENING STACK</div>
-        <div class="habit">
-            <div class="checkbox-wrapper"><input type="checkbox" id="evening-hud" data-habit="evening-hud"></div>
-            <div class="habit-info">
-                <div class="habit-name">Hud Bedtime Routine</div>
-                <div class="streak" id="streak-evening-hud">Current streak: 0 days</div>
+        <div class="stack">
+            <div class="stack-title">EVENING STACK</div>
+            <div class="habit">
+                <div class="checkbox-wrapper"><input type="checkbox" id="we-afternoon-supps" data-habit="we-afternoon-supps"></div>
+                <div class="habit-info">
+                    <div class="habit-name">Supplements (Fish oil + Vit D + Zinc + Magnesium)</div>
+                    <div class="streak" id="streak-we-afternoon-supps">Current streak: 0 days</div>
+                </div>
             </div>
-        </div>
-        <div class="habit">
-            <div class="checkbox-wrapper"><input type="checkbox" id="evening-supps" data-habit="evening-supps"></div>
-            <div class="habit-info">
-                <div class="habit-name">Supplements (Metamucil + ACV)</div>
-                <div class="streak" id="streak-evening-supps">Current streak: 0 days</div>
+            <div class="habit">
+                <div class="checkbox-wrapper"><input type="checkbox" id="we-shower" data-habit="we-shower"></div>
+                <div class="habit-info">
+                    <div class="habit-name">Cold shower</div>
+                    <div class="streak" id="streak-we-shower">Current streak: 0 days</div>
+                </div>
             </div>
-        </div>
-        <div class="habit">
-            <div class="checkbox-wrapper"><input type="checkbox" id="evening-gratitude" data-habit="evening-gratitude"></div>
-            <div class="habit-info habit-link" onclick="openGratitudeModal()">
-                <div class="habit-name">Gratitude <span class="drill-arrow">›</span></div>
-                <div class="streak" id="streak-evening-gratitude">Current streak: 0 days</div>
+            <div class="habit">
+                <div class="checkbox-wrapper"><input type="checkbox" id="we-cleanup" data-habit="we-cleanup"></div>
+                <div class="habit-info habit-link" onclick="openCleanupModal()">
+                    <div class="habit-name">Proactive Cleanup <span class="drill-arrow">›</span></div>
+                    <div class="streak" id="streak-we-cleanup">Current streak: 0 days</div>
+                </div>
             </div>
-        </div>
-        <div class="habit">
-            <div class="checkbox-wrapper"><input type="checkbox" id="evening-golf" data-habit="evening-golf"></div>
-            <div class="habit-info habit-link" onclick="openGolfModal()">
-                <div class="habit-name">Golf habit <span class="drill-arrow">›</span></div>
-                <div class="streak" id="streak-evening-golf">Current streak: 0 days</div>
+            <div class="habit">
+                <div class="checkbox-wrapper"><input type="checkbox" id="we-hud" data-habit="we-hud"></div>
+                <div class="habit-info">
+                    <div class="habit-name">Hud Bedtime Routine</div>
+                    <div class="streak" id="streak-we-hud">Current streak: 0 days</div>
+                </div>
+            </div>
+            <div class="habit">
+                <div class="checkbox-wrapper"><input type="checkbox" id="we-evening-supps" data-habit="we-evening-supps"></div>
+                <div class="habit-info">
+                    <div class="habit-name">Supplements (Metamucil + ACV)</div>
+                    <div class="streak" id="streak-we-evening-supps">Current streak: 0 days</div>
+                </div>
             </div>
         </div>
     </div>
@@ -247,127 +304,87 @@
             <div class="full-modal-title">☀️ Morning Primer</div>
             <button class="btn-close-modal" onclick="closePrimerModal()">✕ Close</button>
         </div>
-
-        <!-- Toggle -->
         <div class="context-toggle">
             <button class="toggle-btn active" id="primerToggleLong" onclick="setPrimerContext('long')">🔵 Long</button>
             <button class="toggle-btn" id="primerToggleShort" onclick="setPrimerContext('short')">🟢 Short</button>
         </div>
-
-        <!-- Short Panel -->
-        <div class="drill-panel" id="panel-primer-short">
-            <div class="drill-phase-tag">Phase 1 — Home</div>
-            <div class="drill-section">
-                <div class="drill-section-title">🏠 Home</div>
-                <div class="drill-item">
-                    <div class="drill-dot"></div>
-                    <div>
-                        <div>Cold water on face</div>
-                        <div class="drill-note">Wake the system. Quick reset.</div>
-                    </div>
-                </div>
-                <div class="drill-item">
-                    <div class="drill-dot"></div>
-                    <div>
-                        <div>Step outside (1–2 mins)</div>
-                        <div class="drill-note">Get natural light. Look into the distance. Let your eyes and nervous system settle.</div>
-                    </div>
-                </div>
-            </div>
-            <div class="drill-phase-tag">Phase 2 — Commute</div>
-            <div class="drill-section">
-                <div class="drill-section-title">🚶 Walk</div>
-                <div class="drill-item">
-                    <div class="drill-dot"></div>
-                    <div>
-                        <div>Set your standard for the day</div>
-                        <div class="drill-note">Who are you today? Pick one way you show up — calm, proactive, patient.</div>
-                    </div>
-                </div>
-                <div class="drill-item">
-                    <div class="drill-dot"></div>
-                    <div>
-                        <div>Run 1–2 scenarios</div>
-                        <div class="drill-note">Where will this be tested? See yourself handling it well.</div>
-                    </div>
-                </div>
-                <div class="drill-item">
-                    <div class="drill-dot"></div>
-                    <div>
-                        <div>Envision tonight</div>
-                        <div class="drill-note">Lying in bed — exhausted, but fulfilled from the day.</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Long Panel -->
         <div class="drill-panel active" id="panel-primer-long">
             <div class="drill-phase-tag">Phase 1 — Home</div>
             <div class="drill-section">
                 <div class="drill-section-title">🏠 Home</div>
-                <div class="drill-item">
-                    <div class="drill-dot"></div>
-                    <div>
-                        <div>Cold water on face</div>
-                        <div class="drill-note">Wake the system. Quick reset.</div>
-                    </div>
-                </div>
-                <div class="drill-item">
-                    <div class="drill-dot"></div>
-                    <div>
-                        <div>Step outside (2–5 mins)</div>
-                        <div class="drill-note">Get natural light. Look into the distance. Let your eyes and nervous system settle.</div>
-                    </div>
-                </div>
-                <div class="drill-item">
-                    <div class="drill-dot"></div>
-                    <div>
-                        <div>2-min flow</div>
-                        <div class="drill-note">Bounce / twist / up-down. Get the body moving before the mind takes over.</div>
-                    </div>
-                </div>
-                <div class="drill-item">
-                    <div class="drill-dot"></div>
-                    <div>
-                        <div>Gratitude — short</div>
-                        <div class="drill-note">1–2 things. Say why they matter.</div>
-                    </div>
-                </div>
-                <div class="drill-item">
-                    <div class="drill-dot"></div>
-                    <div>
-                        <div>Mental challenge (5–10 mins)</div>
-                        <div class="drill-note">Sudoku / logic puzzle / brain teaser / language practice</div>
-                    </div>
-                </div>
+                <div class="drill-item"><div class="drill-dot"></div><div><div>Cold water on face</div><div class="drill-note">Wake the system. Quick reset.</div></div></div>
+                <div class="drill-item"><div class="drill-dot"></div><div><div>Step outside (2–5 mins)</div><div class="drill-note">Get natural light. Look into the distance. Let your eyes and nervous system settle.</div></div></div>
+                <div class="drill-item"><div class="drill-dot"></div><div><div>2-min flow</div><div class="drill-note">Bounce / twist / up-down. Get the body moving before the mind takes over.</div></div></div>
+                <div class="drill-item"><div class="drill-dot"></div><div><div>Gratitude — short</div><div class="drill-note">1–2 things. Say why they matter.</div></div></div>
+                <div class="drill-item"><div class="drill-dot"></div><div><div>Mental challenge (5–10 mins)</div><div class="drill-note">Sudoku / logic puzzle / brain teaser / language practice</div></div></div>
             </div>
             <div class="drill-phase-tag">Phase 2 — Commute</div>
             <div class="drill-section">
                 <div class="drill-section-title">🚶 Walk</div>
-                <div class="drill-item">
-                    <div class="drill-dot"></div>
-                    <div>
-                        <div>Set your standard for the day</div>
-                        <div class="drill-note">Who are you today? Pick one way you show up — calm, proactive, patient.</div>
-                    </div>
-                </div>
-                <div class="drill-item">
-                    <div class="drill-dot"></div>
-                    <div>
-                        <div>Run 1–2 scenarios</div>
-                        <div class="drill-note">Where will this be tested? See yourself handling it well.</div>
-                    </div>
-                </div>
-                <div class="drill-item">
-                    <div class="drill-dot"></div>
-                    <div>
-                        <div>Envision tonight</div>
-                        <div class="drill-note">Lying in bed — exhausted, but fulfilled from the day.</div>
-                    </div>
-                </div>
+                <div class="drill-item"><div class="drill-dot"></div><div><div>Set your standard for the day</div><div class="drill-note">Who are you today? Pick one way you show up — calm, proactive, patient.</div></div></div>
+                <div class="drill-item"><div class="drill-dot"></div><div><div>Run 1–2 scenarios</div><div class="drill-note">Where will this be tested? See yourself handling it well.</div></div></div>
+                <div class="drill-item"><div class="drill-dot"></div><div><div>Envision tonight</div><div class="drill-note">Lying in bed — exhausted, but fulfilled from the day.</div></div></div>
             </div>
         </div>
+        <div class="drill-panel" id="panel-primer-short">
+            <div class="drill-phase-tag">Phase 1 — Home</div>
+            <div class="drill-section">
+                <div class="drill-section-title">🏠 Home</div>
+                <div class="drill-item"><div class="drill-dot"></div><div><div>Cold water on face</div><div class="drill-note">Wake the system. Quick reset.</div></div></div>
+                <div class="drill-item"><div class="drill-dot"></div><div><div>Step outside (1–2 mins)</div><div class="drill-note">Get natural light. Look into the distance. Let your eyes and nervous system settle.</div></div></div>
+            </div>
+            <div class="drill-phase-tag">Phase 2 — Commute</div>
+            <div class="drill-section">
+                <div class="drill-section-title">🚶 Walk</div>
+                <div class="drill-item"><div class="drill-dot"></div><div><div>Set your standard for the day</div><div class="drill-note">Who are you today? Pick one way you show up — calm, proactive, patient.</div></div></div>
+                <div class="drill-item"><div class="drill-dot"></div><div><div>Run 1–2 scenarios</div><div class="drill-note">Where will this be tested? See yourself handling it well.</div></div></div>
+                <div class="drill-item"><div class="drill-dot"></div><div><div>Envision tonight</div><div class="drill-note">Lying in bed — exhausted, but fulfilled from the day.</div></div></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Weekend Primer Modal -->
+<div class="full-modal" id="weekendPrimerModal">
+    <div class="full-modal-inner">
+        <div class="full-modal-header">
+            <div class="full-modal-title">☀️ Weekend Primer</div>
+            <button class="btn-close-modal" onclick="closeModal('weekendPrimerModal')">✕ Close</button>
+        </div>
+        <div class="drill-phase-tag">Phase 1 — Home (before gym)</div>
+        <div class="drill-section">
+            <div class="drill-section-title">🏠 Home</div>
+            <div class="drill-item"><div class="drill-dot"></div><div><div>Cold water on face</div><div class="drill-note">Wake the system. Quick reset.</div></div></div>
+            <div class="drill-item"><div class="drill-dot"></div><div><div>Step outside (30–60 sec)</div><div class="drill-note">Get natural light. Look into the distance. Let your eyes and nervous system settle.</div></div></div>
+            <div class="drill-item"><div class="drill-dot"></div><div><div>2-min flow</div><div class="drill-note">Bounce / twist / up-down. Get the body moving before the mind takes over.</div></div></div>
+            <div class="drill-item"><div class="drill-dot"></div><div><div>Gratitude — short</div><div class="drill-note">1–2 things. Say why they matter.</div></div></div>
+        </div>
+        <div class="drill-phase-tag">Phase 2 — Gym arrival</div>
+        <div class="drill-section">
+            <div class="drill-section-title">🏋️ Gym</div>
+            <div class="drill-item"><div class="drill-dot"></div><div><div>Set your gym standard</div><div class="drill-note">How do I show up here? Focused, disciplined, no shortcuts.</div></div></div>
+        </div>
+        <div class="drill-phase-tag">Phase 3 — Post gym</div>
+        <div class="drill-section">
+            <div class="drill-section-title">🚶 Transition to day</div>
+            <div class="drill-item"><div class="drill-dot"></div><div><div>Set your day standard</div><div class="drill-note">Who am I now? Present, patient, family-first.</div></div></div>
+            <div class="drill-item"><div class="drill-dot"></div><div><div>Run a scenario</div><div class="drill-note">Where will this be tested? Kids, partner, interruptions. See yourself handling it well.</div></div></div>
+            <div class="drill-item"><div class="drill-dot"></div><div><div>Envision tonight</div><div class="drill-note">Lying in bed — exhausted, but fulfilled from the day.</div></div></div>
+        </div>
+        <div class="gratitude-anchor">✅ Primer complete — after post-gym section.</div>
+        <div class="drill-reminder"><strong>Reminder:</strong> Tick the Weekend Primer checkbox on the main page once done.</div>
+    </div>
+</div>
+
+<!-- Weekend Tasks Modal -->
+<div class="full-modal" id="weekendTasksModal">
+    <div class="full-modal-inner">
+        <div class="full-modal-header">
+            <div class="full-modal-title">🏠 Weekend Tasks</div>
+            <button class="btn-close-modal" onclick="closeModal('weekendTasksModal')">✕ Close</button>
+        </div>
+        <div class="gratitude-anchor">Your list, your call. Tap below to open your running task list.</div>
+        <a class="btn-external-link" href="shortcuts://run-shortcut?name=Weekend%20Work">📋 Open Weekend Task List</a>
     </div>
 </div>
 
@@ -376,9 +393,9 @@
     <div class="full-modal-inner">
         <div class="full-modal-header">
             <div class="full-modal-title">⚽ Huddy Time</div>
-            <button class="btn-close-modal" onclick="closeHuddyModal()">✕ Close</button>
+            <button class="btn-close-modal" onclick="closeModal('huddyModal')">✕ Close</button>
         </div>
-        <div class="context-toggle">
+        <div class="context-toggle" id="huddy-toggle">
             <button class="toggle-btn active" id="huddyToggleQuick" onclick="setHuddyContext('quick')">⚡ Quick</button>
             <button class="toggle-btn" id="huddyToggleFullarvo" onclick="setHuddyContext('fullarvo')">🌤️ Full Arvo</button>
         </div>
@@ -386,89 +403,23 @@
             <div class="drill-phase-tag">Minimum — always achievable</div>
             <div class="gratitude-anchor">10 minutes of your presence is worth more than an hour of distraction. Showing up consistently is what he'll remember.</div>
             <div class="drill-section">
-                <div class="drill-item">
-                    <div class="drill-dot"></div>
-                    <div>
-                        <div>Throw and catch</div>
-                        <div class="drill-note">Coordination builds the same way wherever you are.</div>
-                    </div>
-                </div>
-                <div class="drill-item">
-                    <div class="drill-dot"></div>
-                    <div>
-                        <div>Kick the ball — footy or soccer</div>
-                        <div class="drill-note">Keep it low key. Let him lead the pace.</div>
-                    </div>
-                </div>
-                <div class="drill-item">
-                    <div class="drill-dot"></div>
-                    <div>
-                        <div>Cricket</div>
-                        <div class="drill-note">5–10 mins. Just bat and bowl. No need to keep score.</div>
-                    </div>
-                </div>
-                <div class="drill-item">
-                    <div class="drill-dot"></div>
-                    <div>
-                        <div>Handball</div>
-                        <div class="drill-note">He plays it at school — home version counts just as much.</div>
-                    </div>
-                </div>
+                <div class="drill-item"><div class="drill-dot"></div><div><div>Throw and catch</div><div class="drill-note">Coordination builds the same way wherever you are.</div></div></div>
+                <div class="drill-item"><div class="drill-dot"></div><div><div>Kick the ball — footy or soccer</div><div class="drill-note">Keep it low key. Let him lead the pace.</div></div></div>
+                <div class="drill-item"><div class="drill-dot"></div><div><div>Cricket</div><div class="drill-note">5–10 mins. Just bat and bowl. No need to keep score.</div></div></div>
+                <div class="drill-item"><div class="drill-dot"></div><div><div>Handball</div><div class="drill-note">He plays it at school — home version counts just as much.</div></div></div>
             </div>
         </div>
         <div class="drill-panel" id="panel-huddy-fullarvo">
             <div class="drill-phase-tag">More time — make it count</div>
-            <div class="gratitude-anchor">Consistency over intensity. 10 minutes every day beats an hour on weekends. He's building a picture of who his dad is — make it a good one.</div>
+            <div class="gratitude-anchor">The weekend is the main event. This is when he gets the most of you — make it count.</div>
             <div class="drill-section">
-                <div class="drill-item">
-                    <div class="drill-dot"></div>
-                    <div>
-                        <div>Backyard footy</div>
-                        <div class="drill-note">Work on technique. Praise effort, not outcome.</div>
-                    </div>
-                </div>
-                <div class="drill-item">
-                    <div class="drill-dot"></div>
-                    <div>
-                        <div>Cricket</div>
-                        <div class="drill-note">Let him set the rules. His game, his confidence.</div>
-                    </div>
-                </div>
-                <div class="drill-item">
-                    <div class="drill-dot"></div>
-                    <div>
-                        <div>Handball</div>
-                        <div class="drill-note">His game. Let him run it.</div>
-                    </div>
-                </div>
-                <div class="drill-item">
-                    <div class="drill-dot"></div>
-                    <div>
-                        <div>Backyard golf</div>
-                        <div class="drill-note">Bring him into yours.</div>
-                    </div>
-                </div>
-                <div class="drill-item">
-                    <div class="drill-dot"></div>
-                    <div>
-                        <div>Go to the park</div>
-                        <div class="drill-note">Change of scenery. Let him lead what you do when you get there.</div>
-                    </div>
-                </div>
-                <div class="drill-item">
-                    <div class="drill-dot"></div>
-                    <div>
-                        <div>Bike ride</div>
-                        <div class="drill-note">He sets the pace.</div>
-                    </div>
-                </div>
-                <div class="drill-item">
-                    <div class="drill-dot"></div>
-                    <div>
-                        <div>Scooter</div>
-                        <div class="drill-note">Keep up if you can.</div>
-                    </div>
-                </div>
+                <div class="drill-item"><div class="drill-dot"></div><div><div>Backyard footy</div><div class="drill-note">Work on technique. Praise effort, not outcome.</div></div></div>
+                <div class="drill-item"><div class="drill-dot"></div><div><div>Cricket</div><div class="drill-note">Let him set the rules. His game, his confidence.</div></div></div>
+                <div class="drill-item"><div class="drill-dot"></div><div><div>Handball</div><div class="drill-note">His game. Let him run it.</div></div></div>
+                <div class="drill-item"><div class="drill-dot"></div><div><div>Backyard golf</div><div class="drill-note">Bring him into yours.</div></div></div>
+                <div class="drill-item"><div class="drill-dot"></div><div><div>Go to the park</div><div class="drill-note">Change of scenery. Let him lead what you do when you get there.</div></div></div>
+                <div class="drill-item"><div class="drill-dot"></div><div><div>Bike ride</div><div class="drill-note">He sets the pace.</div></div></div>
+                <div class="drill-item"><div class="drill-dot"></div><div><div>Scooter</div><div class="drill-note">Keep up if you can.</div></div></div>
             </div>
         </div>
     </div>
@@ -479,32 +430,18 @@
     <div class="full-modal-inner">
         <div class="full-modal-header">
             <div class="full-modal-title">🧹 Evening Reset</div>
-            <button class="btn-close-modal" onclick="closeCleanupModal()">✕ Close</button>
+            <button class="btn-close-modal" onclick="closeModal('cleanupModal')">✕ Close</button>
         </div>
         <div class="drill-phase-tag">Trigger — after dinner finishes</div>
         <div class="drill-section">
             <div class="drill-section-title">This is mine. No prompts required.</div>
-            <div class="drill-item">
-                <div class="drill-dot"></div>
-                <div>Dishwasher on / emptied</div>
-            </div>
-            <div class="drill-item">
-                <div class="drill-dot"></div>
-                <div>Clean kitchen and Indie's food tray</div>
-            </div>
-            <div class="drill-item">
-                <div class="drill-dot"></div>
-                <div>Pack school bags and make lunches</div>
-            </div>
-            <div class="drill-item">
-                <div class="drill-dot"></div>
-                <div>Tidy toys in lounge room</div>
-            </div>
+            <div class="drill-item"><div class="drill-dot"></div><div>Dishwasher on / emptied</div></div>
+            <div class="drill-item"><div class="drill-dot"></div><div>Clean kitchen and Indie's food tray</div></div>
+            <div class="drill-item"><div class="drill-dot"></div><div>Pack school bags and make lunches</div></div>
+            <div class="drill-item"><div class="drill-dot"></div><div>Tidy toys in lounge room</div></div>
         </div>
         <div class="gratitude-anchor">Done = everything reset for tomorrow.</div>
-        <div class="drill-reminder">
-            <strong>Reminder:</strong> Tick the Proactive Cleanup checkbox on the main page once done.
-        </div>
+        <div class="drill-reminder"><strong>Reminder:</strong> Tick the Proactive Cleanup checkbox on the main page once done.</div>
     </div>
 </div>
 
@@ -513,7 +450,7 @@
     <div class="full-modal-inner">
         <div class="full-modal-header">
             <div class="full-modal-title">⛳ Golf Habit</div>
-            <button class="btn-close-modal" onclick="closeGolfModal()">✕ Close</button>
+            <button class="btn-close-modal" onclick="closeModal('golfModal')">✕ Close</button>
         </div>
         <div class="context-toggle">
             <button class="toggle-btn active" id="golfToggleMobility" onclick="setGolfContext('mobility')">🧘 Mobility</button>
@@ -523,85 +460,27 @@
             <div class="drill-phase-tag">Phase 1 — Mobility + Strength Prompts</div>
             <div class="drill-section">
                 <div class="drill-section-title">🔄 Flexibility (3–5 min)</div>
-                <div class="drill-item">
-                    <div class="drill-dot"></div>
-                    <div>
-                        <div>Hip flexor stretch — kneeling</div>
-                        <div class="drill-note">Kneeling lunge position, push hips forward gently. 30–45 sec each side. Unlocks trail hip loading in backswing.</div>
-                    </div>
-                </div>
-                <div class="drill-item">
-                    <div class="drill-dot"></div>
-                    <div>
-                        <div>90/90 hip stretch</div>
-                        <div class="drill-note">Sit with both legs at 90°. Hold 30–45 sec per side. Builds the rotation range needed for hip/shoulder separation.</div>
-                    </div>
-                </div>
-                <div class="drill-item">
-                    <div class="drill-dot"></div>
-                    <div>
-                        <div>Thoracic rotation</div>
-                        <div class="drill-note">Seated or standing — 10 slow reps each side. Upper back opening independently from hips. Trains the X-factor.</div>
-                    </div>
-                </div>
-                <div class="drill-item">
-                    <div class="drill-dot"></div>
-                    <div>
-                        <div>Wrist &amp; forearm loosening</div>
-                        <div class="drill-note">Circles, flexion/extension — 30 sec each. Keeps grip tension down through impact.</div>
-                    </div>
-                </div>
+                <div class="drill-item"><div class="drill-dot"></div><div><div>Hip flexor stretch — kneeling</div><div class="drill-note">Kneeling lunge position, push hips forward gently. 30–45 sec each side. Unlocks trail hip loading in backswing.</div></div></div>
+                <div class="drill-item"><div class="drill-dot"></div><div><div>90/90 hip stretch</div><div class="drill-note">Sit with both legs at 90°. Hold 30–45 sec per side. Builds the rotation range needed for hip/shoulder separation.</div></div></div>
+                <div class="drill-item"><div class="drill-dot"></div><div><div>Thoracic rotation</div><div class="drill-note">Seated or standing — 10 slow reps each side. Upper back opening independently from hips. Trains the X-factor.</div></div></div>
+                <div class="drill-item"><div class="drill-dot"></div><div><div>Wrist &amp; forearm loosening</div><div class="drill-note">Circles, flexion/extension — 30 sec each. Keeps grip tension down through impact.</div></div></div>
             </div>
-            <div class="drill-reminder">
-                <strong>Reminder:</strong> Tick the Golf habit checkbox on the main page once done.
-            </div>
+            <div class="drill-reminder"><strong>Reminder:</strong> Tick the Golf habit checkbox on the main page once done.</div>
         </div>
         <div class="drill-panel" id="panel-practice">
             <div class="drill-phase-tag">Phase 1 — Pick one, 5–10 min max</div>
             <div class="drill-section">
                 <div class="drill-section-title">🎯 Putting (mat)</div>
-                <div class="drill-item">
-                    <div class="drill-dot"></div>
-                    <div>
-                        <div>Free putting — 20 balls, any distance</div>
-                        <div class="drill-note">No pressure. Just feel the stroke. This is Level 1 — showing up is the goal.</div>
-                    </div>
-                </div>
-                <div class="drill-item">
-                    <div class="drill-dot"></div>
-                    <div>
-                        <div>Gate drill (when ready)</div>
-                        <div class="drill-note">Two tees just wider than your putter face. Roll the ball through without touching. Fixes stroke path.</div>
-                    </div>
-                </div>
-                <div class="drill-item">
-                    <div class="drill-dot"></div>
-                    <div>
-                        <div>Circle drill (Level 2 unlock)</div>
-                        <div class="drill-note">5 balls around the hole at 1m. Get 5/10 consistently before moving up.</div>
-                    </div>
-                </div>
+                <div class="drill-item"><div class="drill-dot"></div><div><div>Free putting — 20 balls, any distance</div><div class="drill-note">No pressure. Just feel the stroke. This is Level 1 — showing up is the goal.</div></div></div>
+                <div class="drill-item"><div class="drill-dot"></div><div><div>Gate drill (when ready)</div><div class="drill-note">Two tees just wider than your putter face. Roll the ball through without touching. Fixes stroke path.</div></div></div>
+                <div class="drill-item"><div class="drill-dot"></div><div><div>Circle drill (Level 2 unlock)</div><div class="drill-note">5 balls around the hole at 1m. Get 5/10 consistently before moving up.</div></div></div>
             </div>
             <div class="drill-section">
                 <div class="drill-section-title">🏌️ Chipping (net)</div>
-                <div class="drill-item">
-                    <div class="drill-dot"></div>
-                    <div>
-                        <div>Bump-and-run with 7-iron</div>
-                        <div class="drill-note">10 chips. Low hands, quiet wrists. This is your highest-ROI scoring shot.</div>
-                    </div>
-                </div>
-                <div class="drill-item">
-                    <div class="drill-dot"></div>
-                    <div>
-                        <div>Wedge pitches (when ready)</div>
-                        <div class="drill-note">Focus on clean contact and wrist hinge. 10 balls is enough.</div>
-                    </div>
-                </div>
+                <div class="drill-item"><div class="drill-dot"></div><div><div>Bump-and-run with 7-iron</div><div class="drill-note">10 chips. Low hands, quiet wrists. This is your highest-ROI scoring shot.</div></div></div>
+                <div class="drill-item"><div class="drill-dot"></div><div><div>Wedge pitches (when ready)</div><div class="drill-note">Focus on clean contact and wrist hinge. 10 balls is enough.</div></div></div>
             </div>
-            <div class="drill-reminder">
-                <strong>Pick one section only.</strong> Putting OR chipping — not both. Keep it under 10 min. Tick the Golf habit checkbox on the main page when done.
-            </div>
+            <div class="drill-reminder"><strong>Pick one section only.</strong> Putting OR chipping — not both. Keep it under 10 min. Tick the Golf habit checkbox on the main page when done.</div>
         </div>
     </div>
 </div>
@@ -611,7 +490,7 @@
     <div class="full-modal-inner">
         <div class="full-modal-header">
             <div class="full-modal-title">🙏 Gratitude</div>
-            <button class="btn-close-modal" onclick="closeGratitudeModal()">✕ Close</button>
+            <button class="btn-close-modal" onclick="closeModal('gratitudeModal')">✕ Close</button>
         </div>
         <div class="context-toggle">
             <button class="toggle-btn active" id="gratToggleShort" onclick="setGratitudeContext('short')">🟢 Short</button>
@@ -672,48 +551,90 @@
 </div>
 
 <script>
-    const HABITS = [
-        { id: 'morning-supps', name: 'Morning Supplements' },
-        { id: 'morning-golf', name: 'Morning Primer' },
-        { id: 'lunch-finances', name: 'Market Review' },
-        { id: 'lunch-widgy', name: 'Widgy Goals & Plan' },
-        { id: 'lunch-gratitude', name: 'Lunch Gratitude' },
-        { id: 'lunch-golf', name: 'Lunch Mobility' },
-        { id: 'afternoon-huddy', name: 'Huddy' },
-        { id: 'afternoon-supps', name: 'Afternoon Supplements' },
-        { id: 'evening-cleanup', name: 'Proactive Cleanup' },
-        { id: 'afternoon-shower', name: 'Cold Shower' },
-        { id: 'evening-hud', name: 'Hud Bedtime' },
-        { id: 'evening-supps', name: 'Evening Supplements' },
-        { id: 'evening-gratitude', name: 'Evening Gratitude' },
-        { id: 'evening-golf', name: 'Evening Golf' }
-    ];
-
-    const STORAGE_KEY = 'habitTrackerData';
-
-    function init() {
-        updateDate();
-        loadTodayData();
-        updateAllStreaks();
-        renderWeekGrid();
-        renderMonthlyStats();
-        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-            checkbox.addEventListener('change', handleCheckboxChange);
-        });
+    // Helper: get day of week (0=Sun, 6=Sat)
+    function getDayOfWeek(dateStr) {
+        const [y, m, d] = dateStr.split('-').map(Number);
+        return new Date(y, m - 1, d).getDay();
     }
-
-    function updateDate() {
-        const today = new Date();
-        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-        document.getElementById('currentDate').textContent = today.toLocaleDateString('en-US', options);
+    function isWeekend(dateStr) {
+        const day = getDayOfWeek(dateStr);
+        return day === 0 || day === 6;
     }
-
+    function isWeekday(dateStr) { return !isWeekend(dateStr); }
     function getTodayKey() {
         const today = new Date();
         const year = today.getFullYear();
         const month = String(today.getMonth() + 1).padStart(2, '0');
         const day = String(today.getDate()).padStart(2, '0');
         return `${year}-${month}-${day}`;
+    }
+
+    // HABITS — weekdayOnly / weekendOnly flags control streak + stats logic
+    const HABITS = [
+        { id: 'morning-supps', name: 'Morning Supplements' },
+        { id: 'morning-golf', name: 'Morning Primer', weekdayOnly: true },
+        { id: 'weekend-primer', name: 'Weekend Primer', weekendOnly: true },
+        { id: 'lunch-finances', name: 'Market Review', weekdayOnly: true },
+        { id: 'lunch-widgy', name: 'Widgy Goals & Plan', weekdayOnly: true },
+        { id: 'lunch-gratitude', name: 'Lunch Gratitude', weekdayOnly: true },
+        { id: 'lunch-golf', name: 'Lunch Mobility', weekdayOnly: true },
+        { id: 'afternoon-huddy', name: 'Huddy', weekdayOnly: true },
+        { id: 'afternoon-supps', name: 'Afternoon Supplements', weekdayOnly: true },
+        { id: 'evening-cleanup', name: 'Proactive Cleanup', weekdayOnly: true },
+        { id: 'afternoon-shower', name: 'Cold Shower', weekdayOnly: true },
+        { id: 'evening-hud', name: 'Hud Bedtime', weekdayOnly: true },
+        { id: 'evening-supps', name: 'Evening Supplements', weekdayOnly: true },
+        { id: 'evening-gratitude', name: 'Evening Gratitude', weekdayOnly: true },
+        { id: 'evening-golf', name: 'Evening Golf', weekdayOnly: true },
+        { id: 'weekend-huddy', name: 'Huddy', weekendOnly: true },
+        { id: 'weekend-tasks', name: 'Weekend Tasks', weekendOnly: true },
+        { id: 'we-afternoon-supps', name: 'Afternoon Supplements', weekendOnly: true },
+        { id: 'we-shower', name: 'Cold Shower', weekendOnly: true },
+        { id: 'we-cleanup', name: 'Proactive Cleanup', weekendOnly: true },
+        { id: 'we-hud', name: 'Hud Bedtime', weekendOnly: true },
+        { id: 'we-evening-supps', name: 'Evening Supplements', weekendOnly: true }
+    ];
+
+    const STORAGE_KEY = 'habitTrackerData';
+
+    function init() {
+        const todayKey = getTodayKey();
+        const weekend = isWeekend(todayKey);
+        updateDate();
+        applyDayMode(weekend);
+        loadTodayData();
+        updateAllStreaks();
+        renderWeekGrid();
+        renderMonthlyStats();
+        document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+            cb.addEventListener('change', handleCheckboxChange);
+        });
+    }
+
+    function applyDayMode(weekend) {
+        document.getElementById('weekday-stacks').style.display = weekend ? 'none' : 'block';
+        document.getElementById('weekend-stacks').style.display = weekend ? 'block' : 'none';
+        const primerLink = document.getElementById('primer-link');
+        const primerLabel = document.getElementById('primer-label');
+        if (weekend) {
+            primerLink.onclick = () => openModal('weekendPrimerModal');
+            primerLabel.innerHTML = 'Weekend Primer <span class="drill-arrow">›</span>';
+        } else {
+            primerLink.onclick = () => openPrimerModal();
+            primerLabel.innerHTML = 'Morning Primer <span class="drill-arrow">›</span>';
+        }
+        // Huddy defaults to Full Arvo on weekends
+        if (weekend) {
+            setHuddyContext('fullarvo');
+        } else {
+            setHuddyContext('quick');
+        }
+    }
+
+    function updateDate() {
+        const today = new Date();
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('currentDate').textContent = today.toLocaleDateString('en-US', options);
     }
 
     function getData() {
@@ -728,10 +649,7 @@
     function loadTodayData() {
         const data = getData();
         const today = getTodayKey();
-        if (!data[today]) {
-            data[today] = {};
-            saveData(data);
-        }
+        if (!data[today]) { data[today] = {}; saveData(data); }
         const todayData = data[today];
         HABITS.forEach(habit => {
             const checkbox = document.getElementById(habit.id);
@@ -750,12 +668,21 @@
         updateStreak(habitId);
     }
 
+    function shouldCountDate(habit, dateStr) {
+        if (habit.weekdayOnly && isWeekend(dateStr)) return false;
+        if (habit.weekendOnly && isWeekday(dateStr)) return false;
+        return true;
+    }
+
     function updateStreak(habitId) {
+        const habit = HABITS.find(h => h.id === habitId);
+        if (!habit) return;
         const data = getData();
         const today = getTodayKey();
         const dates = Object.keys(data).sort().reverse();
         let streak = 0;
         for (const date of dates) {
+            if (!shouldCountDate(habit, date)) continue;
             if (date === today && !Object.values(data[today]).some(v => v)) continue;
             if (data[date][habitId]) {
                 streak++;
@@ -764,7 +691,7 @@
             }
         }
         const streakElement = document.getElementById(`streak-${habitId}`);
-        if (streakElement) {
+        if (streakElement && streakElement.textContent !== '—') {
             if (streak >= 7) {
                 streakElement.innerHTML = `Current streak: ${streak} days 🔥`;
                 streakElement.classList.add('fire');
@@ -812,6 +739,10 @@
         HABITS.forEach(habit => {
             habitRows += `<div class="week-row"><div class="week-label">${habit.name}</div>`;
             days.forEach(date => {
+                if (!shouldCountDate(habit, date)) {
+                    habitRows += `<div class="day-cell day-empty"></div>`;
+                    return;
+                }
                 const isChecked = (data[date] || {})[habit.id];
                 const cellClass = isChecked === true ? 'day-done' : isChecked === false ? 'day-missed' : 'day-empty';
                 habitRows += `<div class="day-cell ${cellClass}"></div>`;
@@ -826,14 +757,15 @@
         const data = getData();
         const currentMonth = new Date().getMonth();
         const currentYear = new Date().getFullYear();
-        const monthDates = Object.keys(data).filter(date => {
+        const allMonthDates = Object.keys(data).filter(date => {
             const d = new Date(date);
             return d.getMonth() === currentMonth && d.getFullYear() === currentYear;
         });
-        const totalDays = monthDates.length;
         let statsHTML = '';
         HABITS.forEach(habit => {
-            const completed = monthDates.filter(date => data[date][habit.id]).length;
+            const relevantDates = allMonthDates.filter(date => shouldCountDate(habit, date));
+            const totalDays = relevantDates.length;
+            const completed = relevantDates.filter(date => data[date][habit.id]).length;
             const percentage = totalDays > 0 ? Math.round((completed / totalDays) * 100) : 0;
             statsHTML += `<div class="stat-row"><div class="stat-label">${habit.name}</div><div class="stat-value">${percentage}% (${completed}/${totalDays})</div></div>`;
         });
@@ -888,22 +820,19 @@
         document.body.style.overflow = '';
     }
 
-    function openGolfModal() { openModal('golfModal'); }
-    function closeGolfModal() { closeModal('golfModal'); }
-    function openGratitudeModal() { openModal('gratitudeModal'); }
-    function closeGratitudeModal() { closeModal('gratitudeModal'); }
-    function openCleanupModal() { openModal('cleanupModal'); }
-    function closeCleanupModal() { closeModal('cleanupModal'); }
     function openPrimerModal() { openModal('primerModal'); }
     function closePrimerModal() { closeModal('primerModal'); }
+    function openGolfModal() { openModal('golfModal'); }
+    function openGratitudeModal() { openModal('gratitudeModal'); }
+    function openCleanupModal() { openModal('cleanupModal'); }
     function openHuddyModal() { openModal('huddyModal'); }
-    function closeHuddyModal() { closeModal('huddyModal'); }
+    function openWeekendTasksModal() { openModal('weekendTasksModal'); }
 
-    function setHuddyContext(context) {
-        document.getElementById('huddyToggleQuick').classList.toggle('active', context === 'quick');
-        document.getElementById('huddyToggleFullarvo').classList.toggle('active', context === 'fullarvo');
-        document.getElementById('panel-huddy-quick').classList.toggle('active', context === 'quick');
-        document.getElementById('panel-huddy-fullarvo').classList.toggle('active', context === 'fullarvo');
+    function setPrimerContext(context) {
+        document.getElementById('primerToggleShort').classList.toggle('active', context === 'short');
+        document.getElementById('primerToggleLong').classList.toggle('active', context === 'long');
+        document.getElementById('panel-primer-short').classList.toggle('active', context === 'short');
+        document.getElementById('panel-primer-long').classList.toggle('active', context === 'long');
     }
 
     function setGolfContext(context) {
@@ -920,16 +849,16 @@
         });
     }
 
-    function setPrimerContext(context) {
-        document.getElementById('primerToggleShort').classList.toggle('active', context === 'short');
-        document.getElementById('primerToggleLong').classList.toggle('active', context === 'long');
-        document.getElementById('panel-primer-short').classList.toggle('active', context === 'short');
-        document.getElementById('panel-primer-long').classList.toggle('active', context === 'long');
+    function setHuddyContext(context) {
+        document.getElementById('huddyToggleQuick').classList.toggle('active', context === 'quick');
+        document.getElementById('huddyToggleFullarvo').classList.toggle('active', context === 'fullarvo');
+        document.getElementById('panel-huddy-quick').classList.toggle('active', context === 'quick');
+        document.getElementById('panel-huddy-fullarvo').classList.toggle('active', context === 'fullarvo');
     }
 
     init();
 </script>
-
+```
 
 </body>
 </html>
